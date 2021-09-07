@@ -1,0 +1,29 @@
+/*
+
+    Common CSS
+    present in : each pages
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'ABeeZee', sans-serif;
+    color: #343131;
+}
+
+.button-shadow:hover {
+    box-shadow: 1px 1px 5px grey;
+}
+
+html {
+    background-color: #f5f1f1;
+}
+
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* Color related classes */
