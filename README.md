@@ -17,6 +17,9 @@ Projet fil rouge réalisé en groupe a l'AFPA d'amiens. Site e-commerce spécial
 * Si la Database n'existe pas créez là via : 
 ``` php bin/console doctrine:database:create```
 
+* Mettre a jour la db en fonction des entités via : 
+``` php bin/console doctrine:migration:migrate ```
+
 ## Démarage : 
 
 Toujours en phase de développement, lancez l'application avec la commande : ```symfony serve``` 
