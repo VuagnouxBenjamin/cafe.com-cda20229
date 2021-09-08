@@ -20,9 +20,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
 
-    {% block javascripts %}
-        {# {{ encore_entry_script_tags('app') }} #}
-    {% endblock %}
 </head>
 <body>
 {# Navbar CSS #}
@@ -46,7 +43,7 @@
         </div>
         <div>
             <ul>
-                <li><a href="#" class="nav-item">Inscription</a></li>
+                <li><a href="{{ path('app_register') }}" class="nav-item">Inscription</a></li>
                 <li><a href="#" class="last-nav-item">Mon compte</a></li>
             </ul>
         </div>
@@ -109,7 +106,7 @@
             </ul>
         </div>
         <div id="side-l3">
-            <a href="#" class="btn-box">Inscription</a>
+            <a href="{{ path('app_register') }}" class="btn-box">Inscription</a>
             <a href="#" class="btn-box">Mon compte</a>
         </div>
     </div>
@@ -146,5 +143,9 @@
     </footer>
 {% endif %}
 
+
+{% block javascripts %}
+    {# {{ encore_entry_script_tags('app') }} #}
+{% endblock %}
 </body>
 </html>
