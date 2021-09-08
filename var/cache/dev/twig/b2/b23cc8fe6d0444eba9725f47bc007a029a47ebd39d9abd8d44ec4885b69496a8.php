@@ -102,25 +102,41 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
         </div>
         <div>
             <ul>
-                <li><a href=\"";
+                ";
         // line 46
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-        echo "\" class=\"nav-item\">Inscription</a></li>
-                <li><a href=\"#\" class=\"last-nav-item\">Mon compte</a></li>
-            </ul>
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 47
+            echo "                    <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\" class=\"nav-item\">Déconnexion</a>
+                    <a href=\"#\" class=\"last-nav-item\">Mon compte</a>
+                ";
+        } else {
+            // line 50
+            echo "                    <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo "\" class=\"nav-item\">Inscription</a>
+                    <a href=\"";
+            // line 51
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\" class=\"last-nav-item\">Connexion</a>
+                ";
+        }
+        // line 53
+        echo "            </ul>
         </div>
     </div>
     <div class=\"nav-l1\">
         <div class=\"mobile-only first-nav-item\" id=\"burger\" hidden>
             <a href=\"#\"><img src=\"";
-        // line 53
+        // line 58
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/navbar/mobile_hamburger_logo.svg"), "html", null, true);
         echo "\"
                              alt=\"Cliquez ici pour ouvrir la navigation mobile\"></a>
         </div>
         <div class=\"nav-left\">
             <ul><a href=\"";
-        // line 57
+        // line 62
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\" class=\"first-nav-item\" id=\"main-logo\">Café<span class=\"accent-brow\">.com</span></a></ul>
         </div>
@@ -137,14 +153,14 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
                 <li>
                     <a href=\"#\" class=\"nav-item nav-logo nav-search\"><img
                                 src=\"";
-        // line 71
+        // line 76
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/navbar/search_logo.svg"), "html", null, true);
         echo "\"
                                 alt=\"Rechercher un élément sur le site\"></a>
                 </li>
                 <li>
                     <a href=\"#\" class=\"last-nav-item nav-logo\"><img src=\"";
-        // line 75
+        // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/navbar/cart_logo.svg"), "html", null, true);
         echo "\"
                                                                     alt=\"Aller vers votre panier\"></a>
@@ -153,7 +169,7 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
         </div>
         <div class=\"mobile-only\" hidden>
             <a href=\"#\" class=\"last-nav-item nav-logo\"><img src=\"";
-        // line 81
+        // line 86
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/navbar/mobile_cart_logo.svg"), "html", null, true);
         echo "\"
                                                             alt=\"Aller vers votre panier\"></a>
@@ -162,7 +178,7 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
 </nav>
 
 ";
-        // line 88
+        // line 93
         echo "<div id=\"sidebar\">
     <div id=\"sidebar-75\">
         <div id=\"side-l1\">
@@ -184,30 +200,46 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
             </ul>
         </div>
         <div id=\"side-l3\">
-            <a href=\"";
-        // line 109
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
-        echo "\" class=\"btn-box\">Inscription</a>
-            <a href=\"#\" class=\"btn-box\">Mon compte</a>
-        </div>
+            ";
+        // line 114
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 115
+            echo "                <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\" class=\"btn-box\">Déconnexion</a>
+                <a href=\"#\" class=\"btn-box\">Mon compte</a>
+            ";
+        } else {
+            // line 118
+            echo "                <a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
+            echo "\" class=\"btn-box\">Inscription</a>
+                <a href=\"";
+            // line 119
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\" class=\"btn-box\">Connexion</a>
+            ";
+        }
+        // line 121
+        echo "        </div>
     </div>
     <div id=\"sidebar-window\">
         ";
-        // line 115
+        // line 125
         echo "    </div>
 </div>
 
 ";
-        // line 118
+        // line 128
         $this->displayBlock('body', $context, $blocks);
-        // line 119
+        // line 129
         echo "
 ";
-        // line 120
+        // line 130
         if (array_key_exists("email_form", $context)) {
-            // line 121
+            // line 131
             echo "    ";
-            // line 122
+            // line 132
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/footer.css"), "html", null, true);
             echo "\">
@@ -216,19 +248,19 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
         <h2 class=\"footer-title\">Recevez l’actualité café.com par e-mail</h2>
         <p class=\"footer-subtitle\">Inscrivez-vous ici</p>
         ";
-            // line 127
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["email_form"]) || array_key_exists("email_form", $context) ? $context["email_form"] : (function () { throw new RuntimeError('Variable "email_form" does not exist.', 127, $this->source); })()), 'form_start');
+            // line 137
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["email_form"]) || array_key_exists("email_form", $context) ? $context["email_form"] : (function () { throw new RuntimeError('Variable "email_form" does not exist.', 137, $this->source); })()), 'form_start');
             echo "
         <div class=\"footer-input\">
             ";
-            // line 129
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["email_form"]) || array_key_exists("email_form", $context) ? $context["email_form"] : (function () { throw new RuntimeError('Variable "email_form" does not exist.', 129, $this->source); })()), "email", [], "any", false, false, false, 129), 'widget');
+            // line 139
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["email_form"]) || array_key_exists("email_form", $context) ? $context["email_form"] : (function () { throw new RuntimeError('Variable "email_form" does not exist.', 139, $this->source); })()), "email", [], "any", false, false, false, 139), 'widget');
             echo "
             <button type=\"submit\" class=\"footer-submit\">S'abonner</button>
         </div>
         ";
-            // line 132
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["email_form"]) || array_key_exists("email_form", $context) ? $context["email_form"] : (function () { throw new RuntimeError('Variable "email_form" does not exist.', 132, $this->source); })()), 'form_end');
+            // line 142
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["email_form"]) || array_key_exists("email_form", $context) ? $context["email_form"] : (function () { throw new RuntimeError('Variable "email_form" does not exist.', 142, $this->source); })()), 'form_end');
             echo "
         <p class=\"footer-small\">En cliquant sur S'abonner vous acceptez <br> les <a href=\"#\" class=\"underline-a\">conditions
                 d'utilisations.</a></p>
@@ -243,13 +275,13 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
     </footer>
 ";
         }
-        // line 145
+        // line 155
         echo "
 
 ";
-        // line 147
+        // line 157
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 150
+        // line 160
         echo "</body>
 </html>";
         
@@ -301,7 +333,7 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
 
     }
 
-    // line 118
+    // line 128
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -319,7 +351,7 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
 
     }
 
-    // line 147
+    // line 157
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -329,7 +361,7 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 148
+        // line 158
         echo "    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -351,7 +383,7 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
 
     public function getDebugInfo()
     {
-        return array (  333 => 148,  323 => 147,  305 => 118,  295 => 12,  293 => 11,  283 => 10,  264 => 7,  253 => 150,  251 => 147,  247 => 145,  231 => 132,  225 => 129,  220 => 127,  211 => 122,  209 => 121,  207 => 120,  204 => 119,  202 => 118,  197 => 115,  189 => 109,  166 => 88,  157 => 81,  148 => 75,  141 => 71,  124 => 57,  117 => 53,  107 => 46,  85 => 28,  80 => 26,  72 => 19,  65 => 15,  62 => 13,  59 => 10,  55 => 7,  47 => 1,);
+        return array (  365 => 158,  355 => 157,  337 => 128,  327 => 12,  325 => 11,  315 => 10,  296 => 7,  285 => 160,  283 => 157,  279 => 155,  263 => 142,  257 => 139,  252 => 137,  243 => 132,  241 => 131,  239 => 130,  236 => 129,  234 => 128,  229 => 125,  224 => 121,  219 => 119,  214 => 118,  207 => 115,  205 => 114,  182 => 93,  173 => 86,  164 => 80,  157 => 76,  140 => 62,  133 => 58,  126 => 53,  121 => 51,  116 => 50,  109 => 47,  107 => 46,  85 => 28,  80 => 26,  72 => 19,  65 => 15,  62 => 13,  59 => 10,  55 => 7,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -401,8 +433,13 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
         </div>
         <div>
             <ul>
-                <li><a href=\"{{ path('app_register') }}\" class=\"nav-item\">Inscription</a></li>
-                <li><a href=\"#\" class=\"last-nav-item\">Mon compte</a></li>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href=\"{{ path('app_logout') }}\" class=\"nav-item\">Déconnexion</a>
+                    <a href=\"#\" class=\"last-nav-item\">Mon compte</a>
+                {% else %}
+                    <a href=\"{{ path('app_register') }}\" class=\"nav-item\">Inscription</a>
+                    <a href=\"{{ path('app_login') }}\" class=\"last-nav-item\">Connexion</a>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -464,8 +501,13 @@ class __TwigTemplate_6d8186a450ac8ce8d4d6359ea62a8a3011a62cff77c22b012b2481c1cec
             </ul>
         </div>
         <div id=\"side-l3\">
-            <a href=\"{{ path('app_register') }}\" class=\"btn-box\">Inscription</a>
-            <a href=\"#\" class=\"btn-box\">Mon compte</a>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a href=\"{{ path('app_logout') }}\" class=\"btn-box\">Déconnexion</a>
+                <a href=\"#\" class=\"btn-box\">Mon compte</a>
+            {% else %}
+                <a href=\"{{ path('app_register') }}\" class=\"btn-box\">Inscription</a>
+                <a href=\"{{ path('app_login') }}\" class=\"btn-box\">Connexion</a>
+            {% endif %}
         </div>
     </div>
     <div id=\"sidebar-window\">

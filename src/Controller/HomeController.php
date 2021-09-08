@@ -36,8 +36,8 @@ class HomeController extends AbstractController
         if ($email_form->isSubmitted() && $email_form->isValid()) {
             $entityManager->persist($email_list);
             $entityManager->flush();
-            $this->redirectToRoute('home');
-            // TODO GROUP : Au submit recharger la page pour reset le formulaire.
+
+            return $this->redirectToRoute('home');
         }
 
         // ------------------------------------
