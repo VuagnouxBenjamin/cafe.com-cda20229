@@ -698,6 +698,6 @@ class __TwigTemplate_18c71cee60d209c91fe66abdad1f83a32c3cd6af799318581505ee21415
         <td class=\"font-normal\">{{ migration.execution_time|default('n/a') }}</td>
     </tr>
 {% endmacro %}
-", "@DoctrineMigrations/Collector/migrations.html.twig", "/home/benj/Bureau/cafe.com-cda20229/vendor/doctrine/doctrine-migrations-bundle/Resources/views/Collector/migrations.html.twig");
+", "@DoctrineMigrations/Collector/migrations.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/vendor/doctrine/doctrine-migrations-bundle/Resources/views/Collector/migrations.html.twig");
     }
 }
