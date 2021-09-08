@@ -99,6 +99,6 @@ class __TwigTemplate_67ee3d6f4b2d2e065f7acd2b0162ba0eec88e96ad917cfc6355e2e60822
 .container.body_default {
     border-top: 8px solid #aaaaaa;
 }
-", "@email/zurb_2/notification/local.css", "/home/benj/Bureau/cafe.com-cda20229/vendor/symfony/twig-bridge/Resources/views/Email/zurb_2/notification/local.css");
+", "@email/zurb_2/notification/local.css", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/vendor/symfony/twig-bridge/Resources/views/Email/zurb_2/notification/local.css");
     }
 }

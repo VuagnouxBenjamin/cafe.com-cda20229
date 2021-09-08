@@ -71,6 +71,6 @@ class __TwigTemplate_3e532f42eacc3a9f621edc448d9268d5ccd9198fe576b006b2753f16f35
     public function getSourceContext()
     {
         return new Source("{% extends \"@email/zurb_2/notification/body.html.twig\" %}
-", "@email/default/notification/body.html.twig", "/home/benj/Bureau/cafe.com-cda20229/vendor/symfony/twig-bridge/Resources/views/Email/default/notification/body.html.twig");
+", "@email/default/notification/body.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/vendor/symfony/twig-bridge/Resources/views/Email/default/notification/body.html.twig");
     }
 }

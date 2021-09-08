@@ -102,6 +102,6 @@ class __TwigTemplate_6ea3ed415ddb4f13223cb34163c740f091cab7b1ac26ada208116dd1209
     {% if link|default(false) %}</a>{% endif %}
         <div class=\"sf-toolbar-info\">{{ text|default('') }}</div>
 </div>
-", "@WebProfiler/Profiler/toolbar_item.html.twig", "/home/benj/Bureau/cafe.com-cda20229/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/toolbar_item.html.twig");
+", "@WebProfiler/Profiler/toolbar_item.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/toolbar_item.html.twig");
     }
 }

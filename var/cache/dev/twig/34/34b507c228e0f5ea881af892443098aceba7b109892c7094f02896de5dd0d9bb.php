@@ -193,6 +193,6 @@ class __TwigTemplate_e9d78eef6734c058dba58f9872c3c08a9e23fdd2e2727f76db6f262fa7a
         {% block body '' %}
     </body>
 </html>
-", "@WebProfiler/Profiler/base.html.twig", "/home/benj/Bureau/cafe.com-cda20229/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
+", "@WebProfiler/Profiler/base.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/vendor/symfony/web-profiler-bundle/Resources/views/Profiler/base.html.twig");
     }
 }

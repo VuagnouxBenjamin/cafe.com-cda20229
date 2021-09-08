@@ -500,6 +500,6 @@ class __TwigTemplate_ccc1a362447d6bd975ef11daf7ef0a6cea075ec7489739c86d7d70c1721
 {% endif %}
 
 </body>
-</html>", "base.html.twig", "/home/benj/Bureau/cafe.com-cda20229/templates/base.html.twig");
+</html>", "base.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/templates/base.html.twig");
     }
 }
