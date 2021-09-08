@@ -5874,6 +5874,7 @@ return array(
     'Twig\\Extension\\SandboxExtension' => $vendorDir . '/twig/twig/src/Extension/SandboxExtension.php',
     'Twig\\Extension\\StagingExtension' => $vendorDir . '/twig/twig/src/Extension/StagingExtension.php',
     'Twig\\Extension\\StringLoaderExtension' => $vendorDir . '/twig/twig/src/Extension/StringLoaderExtension.php',
+    'Twig\\Extra\\String\\StringExtension' => $vendorDir . '/twig/string-extra/StringExtension.php',
     'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\Compiler\\MissingExtensionSuggestorPass' => $vendorDir . '/twig/extra-bundle/DependencyInjection/Compiler/MissingExtensionSuggestorPass.php',
     'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\Configuration' => $vendorDir . '/twig/extra-bundle/DependencyInjection/Configuration.php',
     'Twig\\Extra\\TwigExtraBundle\\DependencyInjection\\TwigExtraExtension' => $vendorDir . '/twig/extra-bundle/DependencyInjection/TwigExtraExtension.php',
