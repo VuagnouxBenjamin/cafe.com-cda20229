@@ -19,6 +19,19 @@ class CategoriesRepository extends ServiceEntityRepository
         parent::__construct($registry, Categories::class);
     }
 
+    /**
+     * @return Categories[] Returns an array of Categories objects
+     */
+    public function findSixLast() :array
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Categories[] Returns an array of Categories objects
     //  */

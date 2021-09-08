@@ -29,6 +29,16 @@ class Categories
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $categoryImage;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $categoryDescription;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -77,6 +87,30 @@ class Categories
                 $product->setCategorie(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategoryImage(): ?string
+    {
+        return $this->categoryImage;
+    }
+
+    public function setCategoryImage(string $categoryImage): self
+    {
+        $this->categoryImage = $categoryImage;
+
+        return $this;
+    }
+
+    public function getCategoryDescription(): ?string
+    {
+        return $this->categoryDescription;
+    }
+
+    public function setCategoryDescription(string $categoryDescription): self
+    {
+        $this->categoryDescription = $categoryDescription;
 
         return $this;
     }

@@ -17,7 +17,7 @@ class StringConfig
     private $enabled;
     
     /**
-     * @default false
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */
