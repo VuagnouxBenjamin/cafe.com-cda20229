@@ -37,7 +37,7 @@ class HomeController extends AbstractController
             $entityManager->persist($email_list);
             $entityManager->flush();
             $this->redirectToRoute('home');
-            // TODO when submiting email should not stay.
+            // TODO GROUP : Au submit recharger la page pour reset le formulaire.
         }
 
         // ------------------------------------
