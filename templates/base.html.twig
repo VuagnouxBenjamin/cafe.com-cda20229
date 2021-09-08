@@ -43,8 +43,13 @@
         </div>
         <div>
             <ul>
-                <li><a href="{{ path('app_register') }}" class="nav-item">Inscription</a></li>
-                <li><a href="#" class="last-nav-item">Mon compte</a></li>
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href="{{ path('app_logout') }}" class="nav-item">Déconnexion</a>
+                    <a href="#" class="last-nav-item">Mon compte</a>
+                {% else %}
+                    <a href="{{ path('app_register') }}" class="nav-item">Inscription</a>
+                    <a href="{{ path('app_login') }}" class="last-nav-item">Connexion</a>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -106,8 +111,13 @@
             </ul>
         </div>
         <div id="side-l3">
-            <a href="{{ path('app_register') }}" class="btn-box">Inscription</a>
-            <a href="#" class="btn-box">Mon compte</a>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a href="{{ path('app_logout') }}" class="btn-box">Déconnexion</a>
+                <a href="#" class="btn-box">Mon compte</a>
+            {% else %}
+                <a href="{{ path('app_register') }}" class="btn-box">Inscription</a>
+                <a href="{{ path('app_login') }}" class="btn-box">Connexion</a>
+            {% endif %}
         </div>
     </div>
     <div id="sidebar-window">
