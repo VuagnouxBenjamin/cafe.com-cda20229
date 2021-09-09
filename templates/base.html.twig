@@ -29,12 +29,12 @@
 <nav>
     <div class="to-hide nav-l2">
         <div>
-            <ul>
+            <ul class="mb-0">
                 <li><a href="#" class="first-nav-item">Livraison & Paiement</a></li>
             </ul>
         </div>
         <div class="nav-center">
-            <ul>
+            <ul class="mb-0">
                 <li><a href="#" class="nav-item">Fidélité</a></li>
                 <li><a href="#" class="nav-item">Actualités</a></li>
                 <li><a href="#" class="nav-item">Avis</a></li>
@@ -42,7 +42,7 @@
             </ul>
         </div>
         <div>
-            <ul>
+            <ul class="mb-0">
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                     <a href="{{ path('app_logout') }}" class="nav-item">Déconnexion</a>
                     <a href="#" class="last-nav-item">Mon compte</a>
@@ -54,15 +54,15 @@
         </div>
     </div>
     <div class="nav-l1">
-        <div class="mobile-only first-nav-item" id="burger" hidden>
+        <div class="mobile-only first-nav-item" id="burger" >
             <a href="#"><img src="{{ asset('images/navbar/mobile_hamburger_logo.svg') }}"
                              alt="Cliquez ici pour ouvrir la navigation mobile"></a>
         </div>
         <div class="nav-left">
-            <ul><a href="{{ path("home") }}" class="first-nav-item" id="main-logo">Café<span class="accent-brow">.com</span></a></ul>
+            <ul class="mb-0"><a href="{{ path("home") }}" class="first-nav-item" id="main-logo">Café<span class="accent-brow">.com</span></a></ul>
         </div>
         <div class="to-hide">
-            <ul class="nav-center">
+            <ul class="nav-center mb-0">
                 <li><a href="#" class="nav-item">Sélection du moment</a></li>
                 <li><a href="#" class="nav-item">Nouveautés</a></li>
                 <li><a href="#" class="nav-item">Cadeaux</a></li>
@@ -70,7 +70,7 @@
             </ul>
         </div>
         <div class="nav-right to-hide">
-            <ul>
+            <ul class="mb-0">
                 <li>
                     <a href="#" class="nav-item nav-logo nav-search"><img
                                 src="{{ asset("images/navbar/search_logo.svg") }}"
@@ -82,7 +82,7 @@
                 </li>
             </ul>
         </div>
-        <div class="mobile-only" hidden>
+        <div class="mobile-only">
             <a href="#" class="last-nav-item nav-logo"><img src="{{ asset("images/navbar/mobile_cart_logo.svg") }}"
                                                             alt="Aller vers votre panier"></a>
         </div>
@@ -93,7 +93,7 @@
 <div id="sidebar">
     <div id="sidebar-75">
         <div id="side-l1">
-            <ul>
+            <ul class="px-0">
                 <li><a href="#" class="side-item">Sélection du moment</a></li>
                 <li><a href="#" class="side-item">Nouveautés</a></li>
                 <li><a href="#" class="side-item">Cadeaux</a></li>
@@ -102,7 +102,7 @@
             </ul>
         </div>
         <div id="side-l2">
-            <ul>
+            <ul class="px-0">
                 <li><a href="#" class="nav-item">Livraison & Paiements</a></li>
                 <li><a href="#" class="nav-item">Fidélité</a></li>
                 <li><a href="#" class="nav-item">Actualités</a></li>
