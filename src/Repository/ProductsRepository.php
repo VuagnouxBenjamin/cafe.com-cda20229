@@ -19,6 +19,15 @@ class ProductsRepository extends ServiceEntityRepository
         parent::__construct($registry, Products::class);
     }
 
+
+    public function findOneLast(): ?Products
+    {
+        return $this->createQueryBuilder('p')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
+
     // /**
     //  * @return Products[] Returns an array of Products objects
     //  */
