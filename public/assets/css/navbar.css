@@ -124,6 +124,9 @@
 @media (max-width: 850px) {
 
     /* Display management */
+    .mobile-only {
+        display: none;
+    }
     .to-hide {
         display: none;
     }
