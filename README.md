@@ -20,12 +20,11 @@ Projet fil rouge réalisé en groupe a l'AFPA d'amiens. Site e-commerce spécial
 * Mettre a jour la db en fonction des entités via : 
 ``` php bin/console doctrine:migration:migrate ```
 
+* Les DataFixtures necessitent une installation : 
+[Faker](https://packagist.org/packages/fzaninotto/faker) : ```composer require fzaninotto/faker ```
+
 * Alimenter la db via les DataFixtures : 
 ``` php bin/console doctrine:fixtures:load ```
-
-### ⚠️ Les DataFixtures necessitent une installatio : 
-
-* [Faker](https://packagist.org/packages/fzaninotto/faker) : ```composer require fzaninotto/faker ```
 
 ## Démarage : 
 
