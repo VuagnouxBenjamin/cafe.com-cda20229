@@ -8,26 +8,26 @@
     {# ----------------------- #}
 
     {# Hero Banner Style #}
-<link rel="stylesheet" href="{{ asset("assets/css/hero.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset("assets/css/hero.css") }}" type="text/css">
 
-{# Hero Banner HTML #}
-<div id="hero-banner">
-    <div id="hero-text">
-        <h2>Découvrez un nouveau café exotique</h2>
-        <p id="hero-description">L'arôme délicat de la noix de coco donne de la douceur au goût riche du café. Le
-            duo exotique vous plongera
-            dans l'atmosphère de vacances à la plage et vous transportera sur la côte paradisiaque.</p>
-        <a href="#" class="hero-btn button-shadow">Voir la promotion</a>
+    {# Hero Banner HTML #}
+    <div id="hero-banner">
+        <div id="hero-text">
+            <h2>Découvrez un nouveau café exotique</h2>
+            <p id="hero-description">L'arôme délicat de la noix de coco donne de la douceur au goût riche du café. Le
+                duo exotique vous plongera
+                dans l'atmosphère de vacances à la plage et vous transportera sur la côte paradisiaque.</p>
+            <a href="#" class="hero-btn button-shadow">Voir la promotion</a>
+        </div>
     </div>
-</div>
-<div id="hero-banner-mobile">
-    <h2>
-        Les cafés du moment...
-    </h2>
-</div>
+    <div id="hero-banner-mobile">
+        <h2>
+            Les cafés du moment...
+        </h2>
+    </div>
 
     {# ----------------------- #}
-    {# ---      CATEGORIES     #}
+    {# ---      CATEGORIES #}
     {# ----------------------- #}
 
     {# Categories Style #}
@@ -41,14 +41,62 @@
                     {{ category.categoryName }}
                 </h2>
                 <p class="cat-description">
-                    {{ category.categoryDescription | u.truncate(80, '...', false)}}
+                    {{ category.categoryDescription | u.truncate(80, '...', false) }}
                 </p>
                 <button class="cat-btn button-shadow">
                     Details
                 </button>
-                <img src="{{ asset(category.categoryImage) }}" alt="Image de description de la categorie : {{ category.categoryName }}" class="cat-img">
+                <img src="{{ asset(category.categoryImage) }}"
+                     alt="Image de description de la categorie : {{ category.categoryName }}" class="cat-img">
             </div>
         {% endfor %}
+    </div>
+
+    {# ----------------------- #}
+    {# ---      Commentaires #}
+    {# ----------------------- #}
+    {{ dump(comments) }}
+
+    {# Hero Banner Style #}
+    <link rel="stylesheet" href="{{ asset("assets/css/comments.css") }}" type="text/css">
+
+    <div id="comments-container">
+        <div id="comments-intro">
+            <h2>Avis des clients</h2>
+            <p>Laissez nous votre avis pour aider nos clients à choisir</p>
+            <a href="#" class="comments-btn button-shadow">Ecrire un avis</a>
+        </div>
+        <div id="comments-list">
+            {% for comment in comments %}
+            <div id="comment-block">
+                <div class="comment">
+                    <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
+                    <div class="comment-product">
+                        <img src="{{ asset(comment.product.image) }}">
+                        <div class="comment-product-info">
+                            <p class="comment-product-info-name">{{ comment.product.name }}</p>
+                            <p class="comment-product-info-category">{{ comment.product.categorie.categoryName }}</p>
+                        </div>
+                    </div>
+                    <div class="comment-text">
+                        <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
+                    </div>
+                    <div class="comment-stars">
+                        {% for i in 1..5 %}
+                            {% if i <= comment.rating %}
+                                <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
+                                     class="star">
+                            {% else %}
+                                <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile pleine"
+                                     class="star">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="#" class="comments-more">Voir tous les avis</a>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

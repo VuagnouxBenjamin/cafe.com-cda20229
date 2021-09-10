@@ -1,0 +1,102 @@
+/*
+    UserComments STYLE
+    PRESENT IN : template/home/index.html.twig
+*/
+
+/* --------------------------------------------------- */
+/* ----------------------------------- General styling */
+/* --------------------------------------------------- */
+
+#comments-container {
+    background-color: white;
+    padding: 2rem;
+}
+
+#comments-intro {
+    text-align: center;
+}
+
+#comments-intro h2 {
+    font-size: 36px;
+}
+
+#comments-intro p {
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.comments-btn {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3DA272;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* --------------------------------------------------- */
+/* ----------------------------------- Comment box     */
+/* --------------------------------------------------- */
+
+#comments-list {
+    margin-top: 3rem;
+}
+
+#comment-block {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.comment {
+    border-bottom: 1px solid #ecebeb;
+    margin-bottom: 1rem;
+}
+
+.comment h3 {
+    font-size: 18px;
+}
+
+.comment-product {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.comment-product img {
+    width: 50px;
+    height: 50px;
+    margin: 0 1rem;
+}
+
+.comment-product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.comment-product-info-name {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.comment-product-info-category {
+    font-size: 12px;
+    margin-top: 0.5rem;
+}
+
+.comment-stars {
+    margin: 1rem 0;
+}
+
+.comments-more {
+    text-align: center;
+    width: 100%;
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5rem;
+    text-decoration: none;
+    margin-bottom: 3rem;
+}

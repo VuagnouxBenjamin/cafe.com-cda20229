@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categories;
+use App\Entity\Comments;
 use App\Entity\EmailList;
 use App\Form\EmailListType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,12 +19,6 @@ class HomeController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-        // ------------------------------------
-        // -------------             CATEGORIES
-        // ------------------------------------
-        $cat_repository = $entityManager->getRepository(Categories::class);
-        $categories = $cat_repository->findSixLast();
-
         // ------------------------------------
         // -------------                 FOOTER
         // ------------------------------------
@@ -45,7 +40,8 @@ class HomeController extends AbstractController
         // ------------------------------------
         return $this->render('home/index.html.twig', [
             'email_form' => $email_form->createView(),
-            'categories' => $categories,
+            'categories' => $entityManager->getRepository(Categories::class)->findSixLast(),
+            'comments' => $entityManager->getRepository(Comments::class)->findTreeLast()
         ]);
     }
 }

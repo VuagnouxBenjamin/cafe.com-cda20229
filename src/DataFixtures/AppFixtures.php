@@ -14,8 +14,6 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
-
-
     private UserPasswordEncoderInterface $passwordEncoder;
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
@@ -60,6 +58,7 @@ class AppFixtures extends Fixture
                     ->setSellPrice($faker->randomFloat(2, 7, 77))
                     ->setAvailableStock($faker->numberBetween(5, 199))
                     ->setAlertStock($faker->numberBetween(10, 30))
+                    ->setImage("images/products/product_img.png")
                     ->setWeightGram($faker->numberBetween(150, 2000));
 
                 //  Store the new product into $manager.

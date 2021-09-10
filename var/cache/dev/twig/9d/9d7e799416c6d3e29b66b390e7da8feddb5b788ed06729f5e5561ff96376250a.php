@@ -94,26 +94,26 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
         echo "
     ";
         // line 11
-        echo "<link rel=\"stylesheet\" href=\"";
+        echo "    <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/hero.css"), "html", null, true);
         echo "\" type=\"text/css\">
 
-";
+    ";
         // line 14
-        echo "<div id=\"hero-banner\">
-    <div id=\"hero-text\">
-        <h2>Découvrez un nouveau café exotique</h2>
-        <p id=\"hero-description\">L'arôme délicat de la noix de coco donne de la douceur au goût riche du café. Le
-            duo exotique vous plongera
-            dans l'atmosphère de vacances à la plage et vous transportera sur la côte paradisiaque.</p>
-        <a href=\"#\" class=\"hero-btn button-shadow\">Voir la promotion</a>
+        echo "    <div id=\"hero-banner\">
+        <div id=\"hero-text\">
+            <h2>Découvrez un nouveau café exotique</h2>
+            <p id=\"hero-description\">L'arôme délicat de la noix de coco donne de la douceur au goût riche du café. Le
+                duo exotique vous plongera
+                dans l'atmosphère de vacances à la plage et vous transportera sur la côte paradisiaque.</p>
+            <a href=\"#\" class=\"hero-btn button-shadow\">Voir la promotion</a>
+        </div>
     </div>
-</div>
-<div id=\"hero-banner-mobile\">
-    <h2>
-        Les cafés du moment...
-    </h2>
-</div>
+    <div id=\"hero-banner-mobile\">
+        <h2>
+            Les cafés du moment...
+        </h2>
+    </div>
 
     ";
         // line 30
@@ -156,8 +156,10 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
                 <img src=\"";
             // line 49
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, $context["category"], "categoryImage", [], "any", false, false, false, 49)), "html", null, true);
-            echo "\" alt=\"Image de description de la categorie : ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "categoryName", [], "any", false, false, false, 49), "html", null, true);
+            echo "\"
+                     alt=\"Image de description de la categorie : ";
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "categoryName", [], "any", false, false, false, 50), "html", null, true);
             echo "\" class=\"cat-img\">
             </div>
         ";
@@ -165,8 +167,110 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 52
+        // line 53
         echo "    </div>
+
+    ";
+        // line 56
+        echo "    ";
+        // line 57
+        echo "    ";
+        // line 58
+        echo "    ";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, (isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 58, $this->source); })()));
+        echo "
+
+    ";
+        // line 61
+        echo "    <link rel=\"stylesheet\" href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/comments.css"), "html", null, true);
+        echo "\" type=\"text/css\">
+
+    <div id=\"comments-container\">
+        <div id=\"comments-intro\">
+            <h2>Avis des clients</h2>
+            <p>Laissez nous votre avis pour aider nos clients à choisir</p>
+            <a href=\"#\" class=\"comments-btn button-shadow\">Ecrire un avis</a>
+        </div>
+        <div id=\"comments-list\">
+            ";
+        // line 70
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 70, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
+            // line 71
+            echo "            <div id=\"comment-block\">
+                <div class=\"comment\">
+                    <h3>";
+            // line 73
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 73), "firstName", [], "any", false, false, false, 73), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 73), "lastName", [], "any", false, false, false, 73), "html", null, true);
+            echo "</h3>
+                    <div class=\"comment-product\">
+                        <img src=\"";
+            // line 75
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 75), "image", [], "any", false, false, false, 75)), "html", null, true);
+            echo "\">
+                        <div class=\"comment-product-info\">
+                            <p class=\"comment-product-info-name\">";
+            // line 77
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 77), "name", [], "any", false, false, false, 77), "html", null, true);
+            echo "</p>
+                            <p class=\"comment-product-info-category\">";
+            // line 78
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 78), "categorie", [], "any", false, false, false, 78), "categoryName", [], "any", false, false, false, 78), "html", null, true);
+            echo "</p>
+                        </div>
+                    </div>
+                    <div class=\"comment-text\">
+                        <p>";
+            // line 82
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $this->extensions['Twig\Extra\String\StringExtension']->createUnicodeString(twig_get_attribute($this->env, $this->source, $context["comment"], "comment", [], "any", false, false, false, 82)), "truncate", [0 => 300, 1 => "...", 2 => false], "method", false, false, false, 82), "html", null, true);
+            echo "</p>
+                    </div>
+                    <div class=\"comment-stars\">
+                        ";
+            // line 85
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(range(1, 5));
+            foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
+                // line 86
+                echo "                            ";
+                if ((0 >= twig_compare($context["i"], twig_get_attribute($this->env, $this->source, $context["comment"], "rating", [], "any", false, false, false, 86)))) {
+                    // line 87
+                    echo "                                <img src=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/comments/comment_star_full.png"), "html", null, true);
+                    echo "\" alt=\"étoile pleine\"
+                                     class=\"star\">
+                            ";
+                } else {
+                    // line 90
+                    echo "                                <img src=\"";
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/comments/comment_star_none.png"), "html", null, true);
+                    echo "\" alt=\"étoile pleine\"
+                                     class=\"star\">
+                            ";
+                }
+                // line 93
+                echo "                        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 94
+            echo "                    </div>
+                </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 97
+        echo "                <a href=\"#\" class=\"comments-more\">Voir tous les avis</a>
+            </div>
+        </div>
+    </div>
 
 ";
         
@@ -189,7 +293,7 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
 
     public function getDebugInfo()
     {
-        return array (  169 => 52,  158 => 49,  150 => 44,  144 => 41,  140 => 39,  136 => 38,  133 => 37,  127 => 34,  124 => 32,  122 => 31,  120 => 30,  103 => 14,  97 => 11,  94 => 9,  92 => 8,  90 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  270 => 97,  262 => 94,  256 => 93,  249 => 90,  242 => 87,  239 => 86,  235 => 85,  229 => 82,  222 => 78,  218 => 77,  213 => 75,  206 => 73,  202 => 71,  198 => 70,  185 => 61,  179 => 58,  177 => 57,  175 => 56,  171 => 53,  162 => 50,  158 => 49,  150 => 44,  144 => 41,  140 => 39,  136 => 38,  133 => 37,  127 => 34,  124 => 32,  122 => 31,  120 => 30,  103 => 14,  97 => 11,  94 => 9,  92 => 8,  90 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -204,26 +308,26 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
     {# ----------------------- #}
 
     {# Hero Banner Style #}
-<link rel=\"stylesheet\" href=\"{{ asset(\"assets/css/hero.css\") }}\" type=\"text/css\">
+    <link rel=\"stylesheet\" href=\"{{ asset(\"assets/css/hero.css\") }}\" type=\"text/css\">
 
-{# Hero Banner HTML #}
-<div id=\"hero-banner\">
-    <div id=\"hero-text\">
-        <h2>Découvrez un nouveau café exotique</h2>
-        <p id=\"hero-description\">L'arôme délicat de la noix de coco donne de la douceur au goût riche du café. Le
-            duo exotique vous plongera
-            dans l'atmosphère de vacances à la plage et vous transportera sur la côte paradisiaque.</p>
-        <a href=\"#\" class=\"hero-btn button-shadow\">Voir la promotion</a>
+    {# Hero Banner HTML #}
+    <div id=\"hero-banner\">
+        <div id=\"hero-text\">
+            <h2>Découvrez un nouveau café exotique</h2>
+            <p id=\"hero-description\">L'arôme délicat de la noix de coco donne de la douceur au goût riche du café. Le
+                duo exotique vous plongera
+                dans l'atmosphère de vacances à la plage et vous transportera sur la côte paradisiaque.</p>
+            <a href=\"#\" class=\"hero-btn button-shadow\">Voir la promotion</a>
+        </div>
     </div>
-</div>
-<div id=\"hero-banner-mobile\">
-    <h2>
-        Les cafés du moment...
-    </h2>
-</div>
+    <div id=\"hero-banner-mobile\">
+        <h2>
+            Les cafés du moment...
+        </h2>
+    </div>
 
     {# ----------------------- #}
-    {# ---      CATEGORIES     #}
+    {# ---      CATEGORIES #}
     {# ----------------------- #}
 
     {# Categories Style #}
@@ -237,14 +341,62 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
                     {{ category.categoryName }}
                 </h2>
                 <p class=\"cat-description\">
-                    {{ category.categoryDescription | u.truncate(80, '...', false)}}
+                    {{ category.categoryDescription | u.truncate(80, '...', false) }}
                 </p>
                 <button class=\"cat-btn button-shadow\">
                     Details
                 </button>
-                <img src=\"{{ asset(category.categoryImage) }}\" alt=\"Image de description de la categorie : {{ category.categoryName }}\" class=\"cat-img\">
+                <img src=\"{{ asset(category.categoryImage) }}\"
+                     alt=\"Image de description de la categorie : {{ category.categoryName }}\" class=\"cat-img\">
             </div>
         {% endfor %}
+    </div>
+
+    {# ----------------------- #}
+    {# ---      Commentaires #}
+    {# ----------------------- #}
+    {{ dump(comments) }}
+
+    {# Hero Banner Style #}
+    <link rel=\"stylesheet\" href=\"{{ asset(\"assets/css/comments.css\") }}\" type=\"text/css\">
+
+    <div id=\"comments-container\">
+        <div id=\"comments-intro\">
+            <h2>Avis des clients</h2>
+            <p>Laissez nous votre avis pour aider nos clients à choisir</p>
+            <a href=\"#\" class=\"comments-btn button-shadow\">Ecrire un avis</a>
+        </div>
+        <div id=\"comments-list\">
+            {% for comment in comments %}
+            <div id=\"comment-block\">
+                <div class=\"comment\">
+                    <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
+                    <div class=\"comment-product\">
+                        <img src=\"{{ asset(comment.product.image) }}\">
+                        <div class=\"comment-product-info\">
+                            <p class=\"comment-product-info-name\">{{ comment.product.name }}</p>
+                            <p class=\"comment-product-info-category\">{{ comment.product.categorie.categoryName }}</p>
+                        </div>
+                    </div>
+                    <div class=\"comment-text\">
+                        <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
+                    </div>
+                    <div class=\"comment-stars\">
+                        {% for i in 1..5 %}
+                            {% if i <= comment.rating %}
+                                <img src=\"{{ asset('images/comments/comment_star_full.png') }}\" alt=\"étoile pleine\"
+                                     class=\"star\">
+                            {% else %}
+                                <img src=\"{{ asset('images/comments/comment_star_none.png') }}\" alt=\"étoile pleine\"
+                                     class=\"star\">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                <a href=\"#\" class=\"comments-more\">Voir tous les avis</a>
+            </div>
+        </div>
     </div>
 
 {% endblock %}", "home/index.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/templates/home/index.html.twig");
