@@ -43,9 +43,7 @@
                 <p class="cat-description">
                     {{ category.categoryDescription | u.truncate(80, '...', false)}}
                 </p>
-                <button class="cat-btn button-shadow">
-                    Details
-                </button>
+                <a href="{{ path('product_list', {id: category.id }) }}" class="cat-btn button-shadow">Details</a>
                 <img src="{{ asset(category.categoryImage) }}" alt="Image de description de la categorie : {{ category.categoryName }}" class="cat-img">
             </div>
         {% endfor %}
