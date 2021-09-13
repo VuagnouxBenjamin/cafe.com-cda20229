@@ -60,7 +60,9 @@ class AppFixtures extends Fixture
                     ->setSellPrice($faker->randomFloat(2, 7, 77))
                     ->setAvailableStock($faker->numberBetween(5, 199))
                     ->setAlertStock($faker->numberBetween(10, 30))
-                    ->setWeightGram($faker->numberBetween(150, 2000));
+                    ->setWeightGram($faker->numberBetween(150, 2000))
+                    ->setImage('images/products/product_img.png');
+
 
                 //  Store the new product into $manager.
                 $manager->persist($product);
