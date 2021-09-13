@@ -91,7 +91,7 @@ class AppFixtures extends Fixture
 
                     $comment = new Comments();
                     $comment
-                        ->setRating($faker->numberBetween(3,5))
+                        ->setRating($faker->numberBetween(0,5))
                         ->setComment($faker->sentences(5, true))
                         ->setProduct($product)
                         ->setUser($user);
