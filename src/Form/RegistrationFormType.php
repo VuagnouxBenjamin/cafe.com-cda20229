@@ -6,8 +6,10 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -20,19 +22,40 @@ class RegistrationFormType extends AbstractType
     {
         // TODO MARIUS : validation du formulaire + Ajout des placeholders & labels en FR + Gérer les méssages d'erreur en FR.
         $builder
-            ->add('firstName')
-            ->add("lastName")
-            ->add("phoneNumber")
-            ->add("shippingAddress")
-            ->add("billingAddress")
+            ->add('firstName', TextType::class, [
+                'label' => 'Prénom',
+            ])
+            ->add("lastName", TextType::class, [
+                'label' => 'Nom'
+            ])
+            ->add("phoneNumber", TextType::class, [
+                'label' => 'Numéro de téléphone',
+                'attr' => [
+                    'placeholder' => '01 02 03 04 05'
+                ]
+            ])
+            ->add("shippingAddress", TextType::class, [
+                'label' => 'Adresse de livraison',
+                'required' => true,
+                'attr' => [
+                    'placeholder' => '10 rue denfert-rocherau, 80000, Amiens'
+                ]
+            ])
+            ->add("billingAddress", TextType::class, [
+                'label' => 'Adresse de facturation'
+            ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre adresse e-mail',
+                'label' => 'E-mail',
+                'attr' => [
+                    'placeholder' => 'jean.dupont@e-mail.com'
+                ]
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
+                'label' => "En appuyant sur ''valider'' vous acceptez les conditions d'utilisation",
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => "Veuillez accepter les conditions d'utilisation",
                     ]),
                 ],
             ])
@@ -56,8 +79,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

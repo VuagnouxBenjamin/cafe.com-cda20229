@@ -21,7 +21,7 @@
     {% form_theme registrationForm 'bootstrap_5_layout.html.twig' %}
 
     <div class="container">
-        {{ form_start(registrationForm) }}
+        {{ form_start(registrationForm, { 'attr': {'novalidate' : 'novalidate'}}) }}
         <h2>Informations de connexion</h2>
         <div class="row">
             {{ form_row(registrationForm.email) }}
