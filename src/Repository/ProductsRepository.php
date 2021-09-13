@@ -27,6 +27,21 @@ class ProductsRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
+     /**
+      * @return \Doctrine\ORM\Query
+      */
+
+    public function findByCategoryQuery($id)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.categorie = :id')
+            ->setParameter('id', $id)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
+        ;
+    }
+
+
 
     // /**
     //  * @return Products[] Returns an array of Products objects

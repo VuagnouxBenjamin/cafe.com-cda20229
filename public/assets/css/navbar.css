@@ -218,3 +218,16 @@
     padding: 1rem;
     border-top: 1px solid #6A3E2A;
 }
+
+#intro {
+    background-color: #EED8C1;
+    height: 140px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#intro h1 {
+    font-size: 32px;
+}

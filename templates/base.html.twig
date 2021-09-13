@@ -125,7 +125,15 @@
     </div>
 </div>
 
-{% block body %}{% endblock %}
+{% if intro_sentence is defined %}
+        <div id="intro">
+            <h1>{{ intro_sentence }}</h1>
+        </div>
+{% endif %}
+
+{% block body %}
+
+{% endblock %}
 
 {% if email_form is defined %}
     {# Footer CSS #}
