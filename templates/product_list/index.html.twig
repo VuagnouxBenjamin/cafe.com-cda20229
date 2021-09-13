@@ -4,6 +4,29 @@
 
 {% block body %}
 
-    {{ dump(pagination) }}
+    {# ----------------------- #}
+    {# ---      CATEGORIES #}
+    {# ----------------------- #}
+
+    {# Categories Style #}
+    <link rel="stylesheet" href="{{ asset("assets/css/prod-list.css") }}" type="text/css">
+
+
+    <div id="prod-container">
+        <div id="prod-filter">
+            Filtres...
+        </div>
+        <div id="prod-list">
+
+            {% for product in pagination %}
+
+                {% include 'product_list/_product.card.html.twig' %}
+
+            {% endfor %}
+
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+
 
 {% endblock %}

@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\EmailList;
 use App\Entity\Products;
+use App\Form\EmailListType;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,11 +27,28 @@ class ProductListController extends AbstractController
             12
         );
 
+        // ------------------------------------
+        // -------------                 FOOTER
+        // ------------------------------------
+        // Creating email list form
+        $email_list = new EmailList();
+        $email_form = $this->createForm(EmailListType::class, $email_list);
+
+        // handling request for email list form
+        $email_form->handleRequest($request);
+        if ($email_form->isSubmitted() && $email_form->isValid()) {
+            $entityManager->persist($email_list);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
 
         return $this->render('product_list/index.html.twig', [
-            'controller_name' => 'ProductListController',
             'products' => $products,
             'pagination' => $pagination,
+            'email_form' => $email_form->createView(),
+            'intro_sentence' => 'Tous les cafés'
         ]);
     }
 }

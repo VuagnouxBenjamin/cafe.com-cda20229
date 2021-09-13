@@ -1,0 +1,73 @@
+/*
+    product-list STYLE
+    PRESENT IN : product-list/index.html.twig
+*/
+
+/* --------------------------------------------------- */
+/* ------------------------- Common to all             */
+/* --------------------------------------------------- */
+
+#prod-container {
+    display: flex;
+}
+
+#prod-filter {
+    background-color: #f6d7d7;
+    width: 25%;
+}
+
+#prod-list {
+    background-color: white;
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------- */
+/* ------------------------- Product cards             */
+/* --------------------------------------------------- */
+
+.prod-card {
+    width: 300px;
+    margin: 1rem;
+}
+
+.prod-image {
+    display: flex;
+    justify-content: center;
+}
+
+.prod-image img {
+    width: auto;
+    height: 250px;
+    align-items: center;
+    display: flex;
+}
+
+.prod-categorie {
+    font-size: 12px;
+    color: #3DA272;
+    margin-bottom: 0.5rem;
+}
+
+.prod-title {
+    /*min-height: 55px;*/
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+.prod-buy {
+    background-color: #3DA272;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    text-decoration: none;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+    margin: 1rem;
+}

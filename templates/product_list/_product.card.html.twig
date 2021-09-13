@@ -1,0 +1,11 @@
+<div class="prod-card">
+    <div class="prod-image">
+        <img src="{{ asset(product.image) }}" alt="Image de présentation du produit {{ product.name }}">
+    </div>
+    <p class="prod-categorie">
+        {{ product.categorie.categoryName }}
+    </p>
+    <h2 class="prod-title">{{ product.name }}</h2>
+    <a href="#" class="prod-buy button-shadow">{{ product.sellPrice }} € / {{ product.weightGram }} g</a>
+
+</div>
