@@ -48,7 +48,7 @@ Toujours en phase de développement, lancez l'application avec la commande : ```
 * ``` git branch ``` → pour s’assurer que vous êtes bien sur la nouvelle branche. 
 
 **Commit son travail :** 
-* ``` git add . ```
+* ``` git add <vos fichiers...> ```
 * ``` git commit -m “votre message” ```
 
 **Push sur sa branche :** 
