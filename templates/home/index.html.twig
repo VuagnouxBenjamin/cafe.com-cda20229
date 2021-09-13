@@ -55,7 +55,6 @@
     {# ----------------------- #}
     {# ---      Commentaires #}
     {# ----------------------- #}
-    {{ dump(comments) }}
 
     {# Hero Banner Style #}
     <link rel="stylesheet" href="{{ asset("assets/css/comments.css") }}" type="text/css">
@@ -67,36 +66,37 @@
             <a href="#" class="comments-btn button-shadow">Ecrire un avis</a>
         </div>
         <div id="comments-list">
-            {% for comment in comments %}
             <div id="comment-block">
-                <div class="comment">
-                    <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
-                    <div class="comment-product">
-                        <img src="{{ asset(comment.product.image) }}">
-                        <div class="comment-product-info">
-                            <p class="comment-product-info-name">{{ comment.product.name }}</p>
-                            <p class="comment-product-info-category">{{ comment.product.categorie.categoryName }}</p>
+                {% for comment in comments %}
+                    <div class="comment">
+                        <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
+                        <div class="comment-product">
+                            <img src="{{ asset(comment.product.image) }}">
+                            <div class="comment-product-info">
+                                <p class="comment-product-info-name">{{ comment.product.name }}</p>
+                                <p class="comment-product-info-category">{{ comment.product.categorie.categoryName }}</p>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
+                        </div>
+                        <div class="comment-stars">
+                            {% for i in 1..5 %}
+                                {% if i <= comment.rating %}
+                                    <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
+                                         class="star">
+                                {% else %}
+                                    <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile pleine"
+                                         class="star">
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class="comment-text">
-                        <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
-                    </div>
-                    <div class="comment-stars">
-                        {% for i in 1..5 %}
-                            {% if i <= comment.rating %}
-                                <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
-                                     class="star">
-                            {% else %}
-                                <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile pleine"
-                                     class="star">
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
                 {% endfor %}
-                <a href="#" class="comments-more">Voir tous les avis</a>
             </div>
+            <a href="#" class="comments-more button-shadow">Voir tous les avis</a>
         </div>
     </div>
+
 
 {% endblock %}

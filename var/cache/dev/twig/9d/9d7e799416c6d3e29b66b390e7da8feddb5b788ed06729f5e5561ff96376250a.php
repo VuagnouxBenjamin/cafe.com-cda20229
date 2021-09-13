@@ -176,12 +176,9 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
         // line 57
         echo "    ";
         // line 58
-        echo "    ";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\DumpExtension']->dump($this->env, $context, (isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 58, $this->source); })()));
-        echo "
-
+        echo "    
     ";
-        // line 61
+        // line 60
         echo "    <link rel=\"stylesheet\" href=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/comments.css"), "html", null, true);
         echo "\" type=\"text/css\">
@@ -193,84 +190,85 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
             <a href=\"#\" class=\"comments-btn button-shadow\">Ecrire un avis</a>
         </div>
         <div id=\"comments-list\">
-            ";
+            <div id=\"comment-block\">
+                ";
         // line 70
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 70, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
             // line 71
-            echo "            <div id=\"comment-block\">
-                <div class=\"comment\">
-                    <h3>";
-            // line 73
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 73), "firstName", [], "any", false, false, false, 73), "html", null, true);
+            echo "                    <div class=\"comment\">
+                        <h3>";
+            // line 72
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 72), "firstName", [], "any", false, false, false, 72), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 73), "lastName", [], "any", false, false, false, 73), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 72), "lastName", [], "any", false, false, false, 72), "html", null, true);
             echo "</h3>
-                    <div class=\"comment-product\">
-                        <img src=\"";
-            // line 75
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 75), "image", [], "any", false, false, false, 75)), "html", null, true);
+                        <div class=\"comment-product\">
+                            <img src=\"";
+            // line 74
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 74), "image", [], "any", false, false, false, 74)), "html", null, true);
             echo "\">
-                        <div class=\"comment-product-info\">
-                            <p class=\"comment-product-info-name\">";
-            // line 77
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 77), "name", [], "any", false, false, false, 77), "html", null, true);
+                            <div class=\"comment-product-info\">
+                                <p class=\"comment-product-info-name\">";
+            // line 76
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 76), "name", [], "any", false, false, false, 76), "html", null, true);
             echo "</p>
-                            <p class=\"comment-product-info-category\">";
-            // line 78
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 78), "categorie", [], "any", false, false, false, 78), "categoryName", [], "any", false, false, false, 78), "html", null, true);
+                                <p class=\"comment-product-info-category\">";
+            // line 77
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "product", [], "any", false, false, false, 77), "categorie", [], "any", false, false, false, 77), "categoryName", [], "any", false, false, false, 77), "html", null, true);
+            echo "</p>
+                            </div>
+                        </div>
+                        <div class=\"comment-text\">
+                            <p>";
+            // line 81
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $this->extensions['Twig\Extra\String\StringExtension']->createUnicodeString(twig_get_attribute($this->env, $this->source, $context["comment"], "comment", [], "any", false, false, false, 81)), "truncate", [0 => 300, 1 => "...", 2 => false], "method", false, false, false, 81), "html", null, true);
             echo "</p>
                         </div>
-                    </div>
-                    <div class=\"comment-text\">
-                        <p>";
-            // line 82
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $this->extensions['Twig\Extra\String\StringExtension']->createUnicodeString(twig_get_attribute($this->env, $this->source, $context["comment"], "comment", [], "any", false, false, false, 82)), "truncate", [0 => 300, 1 => "...", 2 => false], "method", false, false, false, 82), "html", null, true);
-            echo "</p>
-                    </div>
-                    <div class=\"comment-stars\">
-                        ";
-            // line 85
+                        <div class=\"comment-stars\">
+                            ";
+            // line 84
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(range(1, 5));
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                // line 86
-                echo "                            ";
-                if ((0 >= twig_compare($context["i"], twig_get_attribute($this->env, $this->source, $context["comment"], "rating", [], "any", false, false, false, 86)))) {
-                    // line 87
-                    echo "                                <img src=\"";
+                // line 85
+                echo "                                ";
+                if ((0 >= twig_compare($context["i"], twig_get_attribute($this->env, $this->source, $context["comment"], "rating", [], "any", false, false, false, 85)))) {
+                    // line 86
+                    echo "                                    <img src=\"";
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/comments/comment_star_full.png"), "html", null, true);
                     echo "\" alt=\"étoile pleine\"
-                                     class=\"star\">
-                            ";
+                                         class=\"star\">
+                                ";
                 } else {
-                    // line 90
-                    echo "                                <img src=\"";
+                    // line 89
+                    echo "                                    <img src=\"";
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/comments/comment_star_none.png"), "html", null, true);
                     echo "\" alt=\"étoile pleine\"
-                                     class=\"star\">
-                            ";
+                                         class=\"star\">
+                                ";
                 }
-                // line 93
-                echo "                        ";
+                // line 92
+                echo "                            ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 94
-            echo "                    </div>
-                </div>
+            // line 93
+            echo "                        </div>
+                    </div>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 97
-        echo "                <a href=\"#\" class=\"comments-more\">Voir tous les avis</a>
-            </div>
+        // line 96
+        echo "            </div>
+            <a href=\"#\" class=\"comments-more button-shadow\">Voir tous les avis</a>
         </div>
     </div>
+
 
 ";
         
@@ -293,7 +291,7 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
 
     public function getDebugInfo()
     {
-        return array (  270 => 97,  262 => 94,  256 => 93,  249 => 90,  242 => 87,  239 => 86,  235 => 85,  229 => 82,  222 => 78,  218 => 77,  213 => 75,  206 => 73,  202 => 71,  198 => 70,  185 => 61,  179 => 58,  177 => 57,  175 => 56,  171 => 53,  162 => 50,  158 => 49,  150 => 44,  144 => 41,  140 => 39,  136 => 38,  133 => 37,  127 => 34,  124 => 32,  122 => 31,  120 => 30,  103 => 14,  97 => 11,  94 => 9,  92 => 8,  90 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  267 => 96,  259 => 93,  253 => 92,  246 => 89,  239 => 86,  236 => 85,  232 => 84,  226 => 81,  219 => 77,  215 => 76,  210 => 74,  203 => 72,  200 => 71,  196 => 70,  182 => 60,  179 => 58,  177 => 57,  175 => 56,  171 => 53,  162 => 50,  158 => 49,  150 => 44,  144 => 41,  140 => 39,  136 => 38,  133 => 37,  127 => 34,  124 => 32,  122 => 31,  120 => 30,  103 => 14,  97 => 11,  94 => 9,  92 => 8,  90 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -355,8 +353,7 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
     {# ----------------------- #}
     {# ---      Commentaires #}
     {# ----------------------- #}
-    {{ dump(comments) }}
-
+    
     {# Hero Banner Style #}
     <link rel=\"stylesheet\" href=\"{{ asset(\"assets/css/comments.css\") }}\" type=\"text/css\">
 
@@ -367,37 +364,38 @@ class __TwigTemplate_6df8480e155d24754e0c0f3c1bcf3e7e98b0663ad4e2d0be2d0bac8015e
             <a href=\"#\" class=\"comments-btn button-shadow\">Ecrire un avis</a>
         </div>
         <div id=\"comments-list\">
-            {% for comment in comments %}
             <div id=\"comment-block\">
-                <div class=\"comment\">
-                    <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
-                    <div class=\"comment-product\">
-                        <img src=\"{{ asset(comment.product.image) }}\">
-                        <div class=\"comment-product-info\">
-                            <p class=\"comment-product-info-name\">{{ comment.product.name }}</p>
-                            <p class=\"comment-product-info-category\">{{ comment.product.categorie.categoryName }}</p>
+                {% for comment in comments %}
+                    <div class=\"comment\">
+                        <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
+                        <div class=\"comment-product\">
+                            <img src=\"{{ asset(comment.product.image) }}\">
+                            <div class=\"comment-product-info\">
+                                <p class=\"comment-product-info-name\">{{ comment.product.name }}</p>
+                                <p class=\"comment-product-info-category\">{{ comment.product.categorie.categoryName }}</p>
+                            </div>
+                        </div>
+                        <div class=\"comment-text\">
+                            <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
+                        </div>
+                        <div class=\"comment-stars\">
+                            {% for i in 1..5 %}
+                                {% if i <= comment.rating %}
+                                    <img src=\"{{ asset('images/comments/comment_star_full.png') }}\" alt=\"étoile pleine\"
+                                         class=\"star\">
+                                {% else %}
+                                    <img src=\"{{ asset('images/comments/comment_star_none.png') }}\" alt=\"étoile pleine\"
+                                         class=\"star\">
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class=\"comment-text\">
-                        <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
-                    </div>
-                    <div class=\"comment-stars\">
-                        {% for i in 1..5 %}
-                            {% if i <= comment.rating %}
-                                <img src=\"{{ asset('images/comments/comment_star_full.png') }}\" alt=\"étoile pleine\"
-                                     class=\"star\">
-                            {% else %}
-                                <img src=\"{{ asset('images/comments/comment_star_none.png') }}\" alt=\"étoile pleine\"
-                                     class=\"star\">
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
                 {% endfor %}
-                <a href=\"#\" class=\"comments-more\">Voir tous les avis</a>
             </div>
+            <a href=\"#\" class=\"comments-more button-shadow\">Voir tous les avis</a>
         </div>
     </div>
+
 
 {% endblock %}", "home/index.html.twig", "/home/benj/Bureau/Sites/SYMFONY/cafe.com-cda20229/templates/home/index.html.twig");
     }

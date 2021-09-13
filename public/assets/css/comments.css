@@ -50,6 +50,10 @@
     margin: 0 auto;
 }
 
+.comment:last-child {
+    border-bottom: none;
+}
+
 .comment {
     border-bottom: 1px solid #ecebeb;
     margin-bottom: 1rem;
@@ -98,5 +102,6 @@
     border-radius: 5px;
     padding: 0.5rem;
     text-decoration: none;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem;
+    max-width: 760px;
 }
