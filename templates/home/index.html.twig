@@ -53,47 +53,7 @@
     {# ---      Commentaires #}
     {# ----------------------- #}
 
-    {# Hero Banner Style #}
-    <link rel="stylesheet" href="{{ asset("assets/css/comments.css") }}" type="text/css">
-
-    <div id="comments-container">
-        <div id="comments-intro">
-            <h2>Avis des clients</h2>
-            <p>Laissez nous votre avis pour aider nos clients à choisir</p>
-            <a href="#" class="comments-btn button-shadow">Ecrire un avis</a>
-        </div>
-        <div id="comments-list">
-            <div id="comment-block">
-                {% for comment in comments %}
-                    <div class="comment">
-                        <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
-                        <div class="comment-product">
-                            <img src="{{ asset(comment.product.image) }}">
-                            <div class="comment-product-info">
-                                <p class="comment-product-info-name">{{ comment.product.name }}</p>
-                                <p class="comment-product-info-category">{{ comment.product.categorie.categoryName }}</p>
-                            </div>
-                        </div>
-                        <div class="comment-text">
-                            <p>{{ comment.comment | u.truncate(300, '...', false) }}</p>
-                        </div>
-                        <div class="comment-stars">
-                            {% for i in 1..5 %}
-                                {% if i <= comment.rating %}
-                                    <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
-                                         class="star">
-                                {% else %}
-                                    <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile non attribuée"
-                                         class="star">
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-            <a href="#" class="comments-more button-shadow">Voir tous les avis</a>
-        </div>
-    </div>
+    {% include 'user_comments/_comments.html.twig' with {'background': '_cream'} %}
 
 
 {% endblock %}

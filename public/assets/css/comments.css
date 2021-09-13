@@ -3,13 +3,22 @@
     PRESENT IN : template/home/index.html.twig
 */
 
+/*
+ * Parameters for twig "include" ie. {'background':'_white'}
+ */
+._white {
+    background-color: #FFF;
+}
+._cream {
+    background-color: #FFF6F1;
+}
+
 /* --------------------------------------------------- */
 /* ----------------------------------- General styling */
 /* --------------------------------------------------- */
 
 #comments-container {
-    background-color: white;
-    padding: 2rem;
+        padding: 2rem;
 }
 
 #comments-intro {
