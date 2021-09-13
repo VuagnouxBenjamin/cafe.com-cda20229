@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Categories;
+use App\Entity\Comments;
 use App\Entity\EmailList;
 use App\Form\EmailListType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -46,6 +47,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             'email_form' => $email_form->createView(),
             'categories' => $categories,
+            'comments' => $entityManager->getRepository(Comments::class)->findTreeLast()
         ]);
     }
 }

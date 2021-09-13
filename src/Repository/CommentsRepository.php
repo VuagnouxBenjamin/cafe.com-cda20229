@@ -19,6 +19,18 @@ class CommentsRepository extends ServiceEntityRepository
         parent::__construct($registry, Comments::class);
     }
 
+    /**
+     * @return Comments[] Returns an array of Comments objects
+     */
+    public function findTreeLast()
+    {
+        return $this->createQueryBuilder('c')
+            ->orderBy('c.id', 'ASC')
+            ->setMaxResults("3")
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Comments[] Returns an array of Comments objects
     //  */
