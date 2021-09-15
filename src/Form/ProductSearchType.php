@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Categories;
+use App\Entity\Notes;
 use App\Entity\ProductSearch;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -24,11 +25,17 @@ class ProductSearchType extends AbstractType
                     'placeholder' => 'Rechercher'
                 ]
             ])
-
             ->add('categories', EntityType::class, [
                 'label' => false,
                 'required' => false,
                 'class' => Categories::class,
+                'expanded' => true,
+                'multiple' => true
+            ])
+            ->add('notes', EntityType::class, [
+                'label' => false,
+                'required' => false,
+                'class' => Notes::class,
                 'expanded' => true,
                 'multiple' => true
             ])

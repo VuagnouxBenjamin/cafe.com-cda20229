@@ -23,6 +23,11 @@ class ProductSearch
     public $categories = [];
 
     /**
+     * @var Notes[]
+     */
+    public $notes = [];
+
+    /**
      * @var null|integer
      */
     public $max;
