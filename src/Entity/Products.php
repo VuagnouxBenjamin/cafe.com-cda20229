@@ -75,6 +75,11 @@ class Products
      */
     private $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Notes::class, inversedBy="products")
+     */
+    private $note;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -231,6 +236,18 @@ class Products
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getNote(): ?Notes
+    {
+        return $this->note;
+    }
+
+    public function setNote(?Notes $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Categories;
 use App\Entity\Comments;
+use App\Entity\Notes;
 use App\Entity\Products;
 use App\Entity\User;
 use App\Repository\ProductsRepository;
@@ -37,6 +38,23 @@ class AppFixtures extends Fixture
             'Asie'
         ];
 
+        $note_names = [
+            'Agrumes',
+            'Epicé',
+            'Floral',
+            'Fruité',
+            'Gourmand',
+            'Grillé',
+            'Végétal'
+        ];
+
+        for($i = 0; $i < count($note_names); $i++) {
+            ${"note$i"} = new Notes();
+            ${"note$i"}->setName($note_names[$i]);
+
+            $manager->persist(${"note$i"});
+        }
+
         //  create new categorie
         foreach ($categorie_names as $name) {
             $categories = new Categories();
@@ -52,6 +70,8 @@ class AppFixtures extends Fixture
 
                 $product = new Products();
 
+                $noteIndex = rand(0, count($note_names) - 1);
+
                 $product
                     ->setName($faker->words(3, true))
                     ->setShortDescription($faker->sentences(1, true))
@@ -63,9 +83,11 @@ class AppFixtures extends Fixture
                     ->setWeightGram($faker->numberBetween(150, 2000))
                     ->setImage('images/products/product_img.png');
 
+                ${"note$noteIndex"}->addProduct($product);
 
                 //  Store the new product into $manager.
                 $manager->persist($product);
+                $manager->persist( ${"note$noteIndex"});
 
                 // add the product to the category stored in $manager.
                 $categories->addProduct($product);
