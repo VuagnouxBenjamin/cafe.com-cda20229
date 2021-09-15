@@ -12,7 +12,7 @@
     {% endblock %}
 
     {# base CSS #}
-    <link rel="stylesheet" href="{{ asset("assets/css/base.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset("assets/css/base/base.css") }}" type="text/css">
 
 
     {# font import #}
@@ -23,7 +23,7 @@
 </head>
 <body>
 {# Navbar CSS #}
-<link rel="stylesheet" href="{{ asset("assets/css/navbar.css") }}" type="text/css">
+<link rel="stylesheet" href="{{ asset("assets/css/base/navbar.css") }}" type="text/css">
 {# navbar JS #}
 <script src="{{ asset("assets/js/navbar.js") }}" defer></script>
 <nav>
@@ -137,7 +137,7 @@
 
 {% if email_form is defined %}
     {# Footer CSS #}
-    <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/base/footer.css') }}">
 
     <footer id="main-footer">
         <h2 class="footer-title">Recevez l’actualité café.com par e-mail</h2>
