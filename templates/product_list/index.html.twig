@@ -21,22 +21,12 @@
     {# ----------------------- #}
 
     {# Categories Style #}
-    <link rel="stylesheet" href="{{ asset("assets/css/prod-list.css") }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset("assets/css/product_list/prod-list.css") }}" type="text/css">
 
 
     <div id="prod-container">
         <div id="prod-filter">
-            {% form_theme filter_form 'bootstrap_5_layout.html.twig' %}
-            {{ form_start(filter_form) }}
-                {{ form_row(filter_form.q) }}
-                <h3>Catégories</h3>
-                {{ form_row(filter_form.categories) }}
-                {{ form_row(filter_form.min) }}
-                {{ form_row(filter_form.max) }}
-                <button type="submit">Filtrer</button>
-            {{ form_end(filter_form) }}
-
-
+            {% include 'product_list/_filter.html.twig' %}
         </div>
         <div id="prod-list">
 

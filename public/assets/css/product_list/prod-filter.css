@@ -1,0 +1,22 @@
+#prod_filter {
+    width: 85%;
+    margin: 0 auto;
+    color: #6A3E2A;
+}
+
+#prod_filter h3 {
+    border-top: 1px solid #EED8C1;
+    padding-top: 1rem;
+}
+
+#prod_filter h3:first-of-type {
+    border-top: none;
+}
+
+.filter-btn {
+    background-color: #3DA272;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 0.3rem 0.8rem;
+}

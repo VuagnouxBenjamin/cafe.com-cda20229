@@ -1,6 +1,6 @@
 /*
-    product-list STYLE
-    PRESENT IN : product-list/index.html.twig
+    product_list STYLE
+    PRESENT IN : product_list/index.html.twig
 */
 
 /* --------------------------------------------------- */
@@ -12,7 +12,6 @@
 }
 
 #prod-filter {
-    background-color: #f6d7d7;
     width: 25%;
 }
 
