@@ -20,7 +20,7 @@
     background-color: white;
     width: 75%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -67,6 +67,7 @@
 }
 
 .pagination {
+    display: inline;
     width: 100%;
     text-align: center;
     margin: 1rem;

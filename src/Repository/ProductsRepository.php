@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Products;
+use App\Entity\ProductSearch;
+use App\Form\ProductSearchType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -14,6 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProductsRepository extends ServiceEntityRepository
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Products::class);
@@ -27,21 +30,50 @@ class ProductsRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
-     /**
-      * @return \Doctrine\ORM\Query
-      */
-
-    public function findByCategoryQuery($id)
+    /**
+     * @return \Doctrine\ORM\Query
+     */
+    public function findByCategoryQuery(ProductSearch $search, $id)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.categorie = :id')
-            ->setParameter('id', $id)
+        $query =
+            $this->createQueryBuilder('p')
+                ->select('c', 'p')
+                ->join('p.categorie', 'c');
+
+        if (empty($search->categories)) {
+            $query = $query
+                ->andWhere('p.categorie = :id')
+                ->setParameter('id', $id);
+        }
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('p.name LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+        if (!empty($search->min)) {
+            $query = $query
+                ->andWhere('p.sellPrice >= :min')
+                ->setParameter('min', $search->min);
+        }
+
+        if (!empty($search->max)) {
+            $query = $query
+                ->andWhere('p.sellPrice <= :max')
+                ->setParameter('max', $search->max);
+        }
+
+        if (!empty($search->categories)) {
+            $query = $query
+                ->andwhere('c IN (:categories)')
+                ->setParameter('categories', $search->categories);
+        }
+
+        return $query
             ->orderBy('p.id', 'ASC')
-            ->getQuery()
-        ;
+            ->getQuery();
     }
-
-
 
     // /**
     //  * @return Products[] Returns an array of Products objects
