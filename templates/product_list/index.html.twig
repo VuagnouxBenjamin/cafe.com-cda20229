@@ -29,13 +29,11 @@
             {% include 'product_list/_filter.html.twig' %}
         </div>
         <div id="prod-list">
+                {% for product in pagination %}
 
-            {% for product in pagination %}
+                    {% include 'product_list/_product.card.html.twig' %}
 
-                {% include 'product_list/_product.card.html.twig' %}
-
-            {% endfor %}
-
+                {% endfor %}
             {{ knp_pagination_render(pagination) }}
         </div>
     </div>
