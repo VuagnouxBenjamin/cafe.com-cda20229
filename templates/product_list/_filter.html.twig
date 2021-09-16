@@ -4,10 +4,14 @@
 
 {% form_theme filter_form 'bootstrap_5_layout.html.twig' %}
 
+{# prod_list CSS #}
 <link rel="stylesheet" href="{{ asset("assets/css/product_list/prod-filter.css") }}" type="text/css">
+{# prod_list JS #}
+<script src="{{ asset("assets/js/prod_list.js") }}" defer></script>
 
 {# Categories Style #}
 <div id="prod_filter">
+    <a href="" id="prod-filter-exit">X</a>
     {{ form_start(filter_form) }}
     <h3>Rechercher</h3>
     {{ form_row(filter_form.q) }}

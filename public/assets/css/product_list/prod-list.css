@@ -99,3 +99,61 @@
     font-size: 1.3rem;
     font-weight: bold;
 }
+
+.show-filter-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 0;
+    width: 258px;
+    margin: 1rem auto;
+    background-color: #6a3e2a;
+    color: #efddc9;
+    display: none;
+}
+
+/* --------------------------------------------------- */
+/* ------------------------- mobile                    */
+/* --------------------------------------------------- */
+
+
+@media (max-width: 1100px) {
+    #prod-filter-container {
+        background: white;
+        width: 30%;
+    }
+    .prod-card {
+        width: 258px;
+    }
+
+    #prod-list {
+        justify-content: center;
+    }
+
+
+}
+
+@media (max-width: 850px) {
+    #prod-filter-container {
+        background: white;
+        position: absolute;
+        top: 0px;
+        left: -200vw;
+        min-height: 100vh;
+        width: 100vw;
+
+        overflow: hidden;
+        transition: left 150ms ease 0ms;
+    }
+
+    #prod-list {
+        width: 100%;
+    }
+
+    .show-filter-btn {
+        display: block;
+    }
+
+    #prod-filter-exit {
+        display: block; !important;
+    }
+}
