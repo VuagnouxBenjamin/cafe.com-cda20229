@@ -70,7 +70,6 @@ class AppFixtures extends Fixture
 
                 $product = new Products();
 
-                $noteIndex = rand(0, count($note_names) - 1);
 
                 $product
                     ->setName($faker->words(3, true))
@@ -83,6 +82,7 @@ class AppFixtures extends Fixture
                     ->setWeightGram($faker->numberBetween(150, 2000))
                     ->setImage('images/products/product_img.png');
 
+                $noteIndex = rand(0, count($note_names) - 1);
                 ${"note$noteIndex"}->addProduct($product);
 
                 //  Store the new product into $manager.
