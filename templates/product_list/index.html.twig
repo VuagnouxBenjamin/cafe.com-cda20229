@@ -23,19 +23,18 @@
     {# Categories Style #}
     <link rel="stylesheet" href="{{ asset("assets/css/product_list/prod-list.css") }}" type="text/css">
 
-
+    <div id="show-filter">
+        <button class="show-filter-btn shadow-btn">Afficher les filtres</button>
+    </div>
     <div id="prod-container">
         <div id="prod-filter-container">
             {% include 'product_list/_filter.html.twig' %}
         </div>
         <div id="prod-list">
 
-            {% for product in pagination %}
-
-                {% include 'product_list/_product.card.html.twig' %}
-
-            {% endfor %}
-
+                {% for product in pagination %}
+                    {% include 'product_list/_product.card.html.twig' %}
+                {% endfor %}
             {{ knp_pagination_render(pagination) }}
         </div>
     </div>
