@@ -638,8 +638,13 @@ class ComposerStaticInitf46167241207a404912947e2ad0dfe73
     );
 
     public static $classMap = array (
+        'App\\Controller\\Admin\\CategoriesCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/CategoriesCrudController.php',
+        'App\\Controller\\Admin\\DashboardController' => __DIR__ . '/../..' . '/src/Controller/Admin/DashboardController.php',
+        'App\\Controller\\Admin\\NotesCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/NotesCrudController.php',
+        'App\\Controller\\Admin\\ProductsCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/ProductsCrudController.php',
+        'App\\Controller\\Admin\\UserCrudController' => __DIR__ . '/../..' . '/src/Controller/Admin/UserCrudController.php',
         'App\\Controller\\HomeController' => __DIR__ . '/../..' . '/src/Controller/HomeController.php',
-        'App\\Controller\\ProductListController' => __DIR__ . '/../..' . '/src/Controller/ProductListController.php',
+        'App\\Controller\\ProductController' => __DIR__ . '/../..' . '/src/Controller/ProductController.php',
         'App\\Controller\\RegistrationController' => __DIR__ . '/../..' . '/src/Controller/RegistrationController.php',
         'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\DataFixtures\\AppFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/AppFixtures.php',
@@ -650,6 +655,7 @@ class ComposerStaticInitf46167241207a404912947e2ad0dfe73
         'App\\Entity\\ProductSearch' => __DIR__ . '/../..' . '/src/Entity/ProductSearch.php',
         'App\\Entity\\Products' => __DIR__ . '/../..' . '/src/Entity/Products.php',
         'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
+        'App\\EventSubscriber\\EasyAdminSubscriber' => __DIR__ . '/../..' . '/src/EventSubscriber/EasyAdminSubscriber.php',
         'App\\Form\\EmailListType' => __DIR__ . '/../..' . '/src/Form/EmailListType.php',
         'App\\Form\\ProductSearchType' => __DIR__ . '/../..' . '/src/Form/ProductSearchType.php',
         'App\\Form\\RegistrationFormType' => __DIR__ . '/../..' . '/src/Form/RegistrationFormType.php',

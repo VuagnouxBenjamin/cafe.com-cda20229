@@ -7,6 +7,6 @@
     </p>
     <h2 class="prod-title">{{ product.name }}</h2>
     <p class="prod-note">#{{ product.note.name }}</p>
-    <a href="#" class="prod-buy button-shadow">{{ product.sellPrice }} € / {{ product.weightGram }} g</a>
+    <a href="{{ path('product_detail', {id: product.id, slug: product.slug}) }}" class="prod-buy button-shadow">{{ product.sellPrice }} € / {{ product.weightGram }} g</a>
 
 </div>

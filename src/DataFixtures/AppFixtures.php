@@ -12,16 +12,19 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
 
 
     private UserPasswordEncoderInterface $passwordEncoder;
+    private SluggerInterface $slugger;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, SluggerInterface $slugger)
     {
         $this->passwordEncoder = $passwordEncoder;
+        $this->slugger = $slugger;
     }
 
     public function load(ObjectManager $manager)
@@ -80,7 +83,8 @@ class AppFixtures extends Fixture
                     ->setAvailableStock($faker->numberBetween(5, 199))
                     ->setAlertStock($faker->numberBetween(10, 30))
                     ->setWeightGram($faker->numberBetween(150, 2000))
-                    ->setImage('images/products/product_img.png');
+                    ->setImage('images/products/product_img.png')
+                    ->setSlug($this->slugger->slug($product->getName()));
 
                 $noteIndex = rand(0, count($note_names) - 1);
                 ${"note$noteIndex"}->addProduct($product);

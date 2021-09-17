@@ -14,10 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ProductListController extends AbstractController
+
+/**
+ * @Route("/products")
+ */
+class ProductController extends AbstractController
 {
     /**
-     * @Route("/categorie-{id}", name="product_list")
+     * @Route("/categorie/{id}", name="product_list")
      */
     public function index($id, EntityManagerInterface $entityManager, PaginatorInterface $paginator, Request $request): Response
     {
@@ -38,8 +42,6 @@ class ProductListController extends AbstractController
         );
 
 
-
-
         // ------------------------------------
         // -------------                 FOOTER
         // ------------------------------------
@@ -57,12 +59,22 @@ class ProductListController extends AbstractController
         }
 
 
-        return $this->render('product_list/index.html.twig', [
+        return $this->render('products/index.html.twig', [
             'products' => $products,
             'pagination' => $pagination,
             'email_form' => $email_form->createView(),
             'intro_sentence' => 'Tous les cafés',
             'filter_form' => $filterForm->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/{slug}", name="product_detail")
+     */
+    public function detail($slug, $id): Response
+    {
+        return $this->render('products/detail.html.twig', [
+            'products' => "hello"
         ]);
     }
 }
