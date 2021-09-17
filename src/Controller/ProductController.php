@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Comments;
 use App\Entity\EmailList;
 use App\Entity\Products;
 use App\Entity\ProductSearch;
@@ -71,10 +72,19 @@ class ProductController extends AbstractController
     /**
      * @Route("/{id}/{slug}", name="product_detail")
      */
-    public function detail($slug, $id): Response
+    public function detail($slug, $id, EntityManagerInterface $entityManager): Response
     {
+
+        $product = $entityManager->getRepository(Products::class)->find($id);
+
+        $rating = $entityManager->getRepository(Comments::class)->getAverageRating($id);
+
+
+
+
         return $this->render('products/detail.html.twig', [
-            'products' => "hello"
+            'product' => $product,
+            'rating' => $rating,
         ]);
     }
 }
