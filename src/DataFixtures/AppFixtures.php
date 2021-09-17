@@ -99,7 +99,6 @@ class AppFixtures extends Fixture
 
                 $rand = rand(1, 10);
                 if ($rand == 1) {
-
                     $user = new User();
                     $user
                         ->setEmail($faker->email())
@@ -115,15 +114,16 @@ class AppFixtures extends Fixture
 
                     $manager->persist($user);
 
-                    $comment = new Comments();
-                    $comment
-                        ->setRating($faker->numberBetween(0,5))
-                        ->setComment($faker->sentences(5, true))
-                        ->setProduct($product)
-                        ->setUser($user);
+                    for ($j =0; $j<5; $j++) {
+                        $comment = new Comments();
+                        $comment
+                            ->setRating($faker->numberBetween(1, 5))
+                            ->setComment($faker->sentences(5, true))
+                            ->setProduct($product)
+                            ->setUser($user);
 
-                    $manager->persist($comment);
-
+                        $manager->persist($comment);
+                    }
                 }
 
             }

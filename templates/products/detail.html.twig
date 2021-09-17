@@ -1,5 +1,39 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>hello world</h1>
+    {{ dump(product) }}
+    {{ dump(rating) }}
+
+
+    {# ----------------------- #}
+    {# ---  Product Detail #}
+    {# ----------------------- #}
+
+    {# Categories Style #}
+    <link rel="stylesheet" href="{{ asset("assets/css/product_detail/detail.css") }}" type="text/css">
+
+    <div id="det-container">
+        <div id="det-image">
+            <img src="{{ asset(product.image) }}" alt="Photographie du {{ product.name }}">
+        </div>
+        <div id="det-details">
+            <p id="det-categorie">
+                {{ product.categorie.categoryName }}
+            </p>
+            <h1 id="det-name">
+                {{ product.name }}
+            </h1>
+            {% for i in 1..5 %}
+                {% if i <= rating.1 %}
+                    <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
+                         class="star">
+                {% else %}
+                    <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile non attribuée"
+                         class="star">
+                {% endif %}
+            {% endfor %}
+            <p>{{ rating.2 }} avis</p>
+        </div>
+    </div>
+
 {% endblock %}

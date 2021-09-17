@@ -1,0 +1,12 @@
+/*
+    product_detail STYLE
+    PRESENT IN : products/detail.html.twig
+*/
+
+/* --------------------------------------------------- */
+/* ------------------------- Common to all             */
+/* --------------------------------------------------- */
+
+#det-container{
+    display: flex;
+}

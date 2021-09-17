@@ -74,17 +74,12 @@ class ProductController extends AbstractController
      */
     public function detail($slug, $id, EntityManagerInterface $entityManager): Response
     {
-
         $product = $entityManager->getRepository(Products::class)->find($id);
-
         $rating = $entityManager->getRepository(Comments::class)->getAverageRating($id);
-
-
-
 
         return $this->render('products/detail.html.twig', [
             'product' => $product,
-            'rating' => $rating,
+            'rating' => $rating[0],
         ]);
     }
 }

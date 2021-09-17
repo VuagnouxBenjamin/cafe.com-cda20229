@@ -38,7 +38,7 @@ class CommentsRepository extends ServiceEntityRepository
     public function getAverageRating($productId)
     {
         return $this->createQueryBuilder('c')
-            ->select('AVG(c.rating)')
+            ->select('AVG(c.rating), COUNT(c.rating)')
             ->Where('c.product = :productId')
             ->setParameter('productId', $productId)
             ->getQuery()
