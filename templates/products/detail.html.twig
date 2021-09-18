@@ -1,9 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {{ dump(product) }}
-    {{ dump(rating) }}
-
+{#    {{ dump(product) }}#}
+{#    {{ dump(rating) }}#}
 
     {# ----------------------- #}
     {# ---  Product Detail #}
@@ -13,9 +12,11 @@
     <link rel="stylesheet" href="{{ asset("assets/css/product_detail/detail.css") }}" type="text/css">
 
     <div id="det-container">
+
         <div id="det-image">
             <img src="{{ asset(product.image) }}" alt="Photographie du {{ product.name }}">
         </div>
+
         <div id="det-details">
             <p id="det-categorie">
                 {{ product.categorie.categoryName }}
@@ -23,17 +24,36 @@
             <h1 id="det-name">
                 {{ product.name }}
             </h1>
-            {% for i in 1..5 %}
-                {% if i <= rating.1 %}
-                    <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
-                         class="star">
-                {% else %}
-                    <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile non attribuée"
-                         class="star">
-                {% endif %}
-            {% endfor %}
-            <p>{{ rating.2 }} avis</p>
+            <div id="det-rating">
+                {% for i in 1..5 %}
+                    {% if i <= rating.1 %}
+                        <img src="{{ asset('images/comments/comment_star_full.png') }}" alt="étoile pleine"
+                             class="star">
+                    {% else %}
+                        <img src="{{ asset('images/comments/comment_star_none.png') }}" alt="étoile non attribuée"
+                             class="star">
+                    {% endif %}
+                {% endfor %}
+                <p id="det-num">{{ rating.2 }} avis</p>
+            </div>
+            <div id="det-description">
+                {{ product.longDescription | raw }}
+            </div>
+            <div id="det-weight">
+                <p class="det-label">Poids</p>
+                <p class="det-value">{{ product.weightGram }} g</p>
+            </div>
+            <a href="#" id="det-btn">
+                <img src="/images/products/cart_white.png" alt="Panier">Ajouter au panier
+            </a>
+
         </div>
     </div>
+
+    {# ----------------------- #}
+    {# ---      Commentaires #}
+    {# ----------------------- #}
+
+    {% include 'user_comments/_comments.html.twig' with {'background': '_cream'} %}
 
 {% endblock %}
