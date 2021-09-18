@@ -20,6 +20,7 @@
 
 #det-image img {
     width: 35vw;
+    max-width: 500px;
 }
 
 #det-details {
@@ -93,9 +94,9 @@
 }
 
 
-@media (max-width: 1100px) {
-
-}
+/* --------------------------------------------------- */
+/* -------------------------  Mobile Responsiveness */
+/* --------------------------------------------------- */
 
 @media (max-width: 850px) {
     #det-container{
