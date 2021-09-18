@@ -17,7 +17,7 @@
 {% block body %}
 
     {# ----------------------- #}
-    {# ---      CATEGORIES #}
+    {# ---      CATEGORIES     #}
     {# ----------------------- #}
 
     {# Categories Style #}
@@ -28,12 +28,12 @@
     </div>
     <div id="prod-container">
         <div id="prod-filter-container">
-            {% include 'product_list/_filter.html.twig' %}
+            {% include 'products/_filter.html.twig' %}
         </div>
         <div id="prod-list">
 
                 {% for product in pagination %}
-                    {% include 'product_list/_product.card.html.twig' %}
+                    {% include 'products/_product.card.html.twig' %}
                 {% endfor %}
             {{ knp_pagination_render(pagination) }}
         </div>

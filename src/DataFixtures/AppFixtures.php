@@ -12,16 +12,19 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AppFixtures extends Fixture
 {
 
 
     private UserPasswordEncoderInterface $passwordEncoder;
+    private SluggerInterface $slugger;
 
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder, SluggerInterface $slugger)
     {
         $this->passwordEncoder = $passwordEncoder;
+        $this->slugger = $slugger;
     }
 
     public function load(ObjectManager $manager)
@@ -80,7 +83,8 @@ class AppFixtures extends Fixture
                     ->setAvailableStock($faker->numberBetween(5, 199))
                     ->setAlertStock($faker->numberBetween(10, 30))
                     ->setWeightGram($faker->numberBetween(150, 2000))
-                    ->setImage('images/products/product_img.png');
+                    ->setImage('images/products/product_img.png')
+                    ->setSlug($this->slugger->slug($product->getName()));
 
                 $noteIndex = rand(0, count($note_names) - 1);
                 ${"note$noteIndex"}->addProduct($product);
@@ -95,7 +99,6 @@ class AppFixtures extends Fixture
 
                 $rand = rand(1, 10);
                 if ($rand == 1) {
-
                     $user = new User();
                     $user
                         ->setEmail($faker->email())
@@ -111,15 +114,16 @@ class AppFixtures extends Fixture
 
                     $manager->persist($user);
 
-                    $comment = new Comments();
-                    $comment
-                        ->setRating($faker->numberBetween(0,5))
-                        ->setComment($faker->sentences(5, true))
-                        ->setProduct($product)
-                        ->setUser($user);
+                    for ($j =0; $j<5; $j++) {
+                        $comment = new Comments();
+                        $comment
+                            ->setRating($faker->numberBetween(1, 5))
+                            ->setComment($faker->sentences(5, true))
+                            ->setProduct($product)
+                            ->setUser($user);
 
-                    $manager->persist($comment);
-
+                        $manager->persist($comment);
+                    }
                 }
 
             }

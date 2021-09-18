@@ -114,3 +114,8 @@
     margin: 0 auto 3rem;
     max-width: 760px;
 }
+
+#comment-none {
+    text-align: center;
+    margin-bottom: 2rem;
+}

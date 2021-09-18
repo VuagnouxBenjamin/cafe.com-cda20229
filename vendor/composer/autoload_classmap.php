@@ -6,8 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\Admin\\CategoriesCrudController' => $baseDir . '/src/Controller/Admin/CategoriesCrudController.php',
+    'App\\Controller\\Admin\\DashboardController' => $baseDir . '/src/Controller/Admin/DashboardController.php',
+    'App\\Controller\\Admin\\NotesCrudController' => $baseDir . '/src/Controller/Admin/NotesCrudController.php',
+    'App\\Controller\\Admin\\ProductsCrudController' => $baseDir . '/src/Controller/Admin/ProductsCrudController.php',
+    'App\\Controller\\Admin\\UserCrudController' => $baseDir . '/src/Controller/Admin/UserCrudController.php',
     'App\\Controller\\HomeController' => $baseDir . '/src/Controller/HomeController.php',
-    'App\\Controller\\ProductListController' => $baseDir . '/src/Controller/ProductListController.php',
+    'App\\Controller\\ProductController' => $baseDir . '/src/Controller/ProductController.php',
     'App\\Controller\\RegistrationController' => $baseDir . '/src/Controller/RegistrationController.php',
     'App\\Controller\\SecurityController' => $baseDir . '/src/Controller/SecurityController.php',
     'App\\DataFixtures\\AppFixtures' => $baseDir . '/src/DataFixtures/AppFixtures.php',
@@ -18,6 +23,7 @@ return array(
     'App\\Entity\\ProductSearch' => $baseDir . '/src/Entity/ProductSearch.php',
     'App\\Entity\\Products' => $baseDir . '/src/Entity/Products.php',
     'App\\Entity\\User' => $baseDir . '/src/Entity/User.php',
+    'App\\EventSubscriber\\EasyAdminSubscriber' => $baseDir . '/src/EventSubscriber/EasyAdminSubscriber.php',
     'App\\Form\\EmailListType' => $baseDir . '/src/Form/EmailListType.php',
     'App\\Form\\ProductSearchType' => $baseDir . '/src/Form/ProductSearchType.php',
     'App\\Form\\RegistrationFormType' => $baseDir . '/src/Form/RegistrationFormType.php',

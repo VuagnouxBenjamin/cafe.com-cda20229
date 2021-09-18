@@ -31,6 +31,22 @@ class CommentsRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * @param $productId
+     * @return Comments|null
+     */
+    public function getAverageRating($productId)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('AVG(c.rating), COUNT(c.rating)')
+            ->Where('c.product = :productId')
+            ->setParameter('productId', $productId)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
     // /**
     //  * @return Comments[] Returns an array of Comments objects
     //  */

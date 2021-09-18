@@ -9,6 +9,11 @@
     </div>
     <div id="comments-list">
         <div id="comment-block">
+            {% if comments|length == 0 %}
+            <div id="comment-none">
+                <p>Aucun commentaire pour le moment...</p>
+            </div>
+            {% endif %}
             {% for comment in comments %}
                 <div class="comment">
                     <h3>{{ comment.user.firstName }} {{ comment.user.lastName }}</h3>
