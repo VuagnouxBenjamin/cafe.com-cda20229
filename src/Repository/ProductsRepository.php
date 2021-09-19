@@ -30,6 +30,25 @@ class ProductsRepository extends ServiceEntityRepository
             ->getOneOrNullResult();
     }
 
+     /**
+      * @return Products[] Returns an array of Products objects
+      */
+    public function findRelatedNote($note)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.note = :note')
+            ->setParameter('note', $note)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+
+
+
     /**
      * @return \Doctrine\ORM\Query
      */

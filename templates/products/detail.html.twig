@@ -1,14 +1,12 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-{#    {{ dump(product) }}#}
-{#    {{ dump(rating) }}#}
 
     {# ----------------------- #}
     {# ---  Product Detail #}
     {# ----------------------- #}
 
-    {# Categories Style #}
+    {# Product detail's Style #}
     <link rel="stylesheet" href="{{ asset("assets/css/product_detail/detail.css") }}" type="text/css">
 
     <div id="det-container">
@@ -51,9 +49,28 @@
     </div>
 
     {# ----------------------- #}
-    {# ---      Commentaires #}
+    {# ---      Comments       #}
     {# ----------------------- #}
 
     {% include 'user_comments/_comments.html.twig' with {'background': '_cream'} %}
+
+
+    {# ----------------------- #}
+    {# ---    Related products #}
+    {# ----------------------- #}
+
+    {# related product's Style #}
+    <link rel="stylesheet" href="{{ asset("assets/css/product_detail/related.css") }}" type="text/css">
+
+    <div id="related-container">
+        <h2 id="rel-title">
+            Vous aimerez aussi
+        </h2>
+        <div id="rel-flex">
+            {% for relatedProduct in related %}
+                {% include 'products/_product.card.html.twig' with {product: relatedProduct} %}
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

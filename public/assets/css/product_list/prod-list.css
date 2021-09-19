@@ -25,62 +25,6 @@
 }
 
 /* --------------------------------------------------- */
-/* ------------------------- Product cards             */
-/* --------------------------------------------------- */
-
-.prod-card {
-    width: 300px;
-    margin: 1rem;
-    border: none;
-    border-radius: 5px;
-    padding: 0 1rem 1rem 1rem;
-    background-color: #fff9f3;
-    max-height: 400px;
-}
-
-.prod-image {
-    display: flex;
-    justify-content: center;
-}
-
-.prod-image img {
-    width: auto;
-    height: 250px;
-    align-items: center;
-    display: flex;
-}
-
-.prod-categorie {
-    font-size: 12px;
-    color: #3DA272;
-    margin-bottom: 0.5rem;
-}
-
-.prod-title {
-    /*min-height: 55px;*/
-    font-size: 16px;
-    margin-bottom: 0;
-}
-
-.prod-buy {
-    background-color: #3DA272;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    padding: 0.3rem 0.8rem;
-    text-decoration: none;
-}
-
-.prod-note {
-    font-size: 13px;
-    color: #6A3E2A;
-}
-
-.prod-card a:hover {
-    color: #fff;
-}
-
-/* --------------------------------------------------- */
 /* ------------------------- Pagination                */
 /* --------------------------------------------------- */
 
@@ -120,9 +64,6 @@
     #prod-filter-container {
         background: white;
         width: 30%;
-    }
-    .prod-card {
-        width: 258px;
     }
 
     #prod-list {

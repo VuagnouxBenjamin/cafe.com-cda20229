@@ -95,7 +95,8 @@ class ProductController extends AbstractController
             'product' => $product,
             'rating' => $rating[0],
             'email_form' => $email_form->createView(),
-            'comments' => $entityManager->getRepository(Comments::class)->findBy(['product' => $id])
+            'comments' => $entityManager->getRepository(Comments::class)->findBy(['product' => $id]),
+            'related' => $entityManager->getRepository(Products::class)->findRelatedNote($product->getNote()),
         ]);
     }
 

@@ -1,0 +1,47 @@
+/*
+    related product STYLE
+    PRESENT IN : products/detail.html.twig
+*/
+
+/* --------------------------------------------------- */
+/* ------------------------- Common to all             */
+/* --------------------------------------------------- */
+
+#related-container {
+    background-color: #FFF;
+    padding: 2rem 0;
+}
+
+#rel-flex {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#rel-title {
+    text-align: center;
+    padding: 0 0 2rem;
+}
+
+.prod-note {
+    font-size: 13px;
+    color: #6A3E2A;
+    padding-bottom: 1rem;
+}
+
+/* --------------------------------------------------- */
+/* -------------------------  Mobile Responsiveness */
+/* --------------------------------------------------- */
+
+@media (max-width: 1327px) {
+
+    .prod-card {
+        margin: 1rem 5rem; !important;
+    }
+
+}
+
+@media (max-width: 850px) {
+
+
+}
