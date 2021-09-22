@@ -33,11 +33,13 @@ class ProductsRepository extends ServiceEntityRepository
      /**
       * @return Products[] Returns an array of Products objects
       */
-    public function findRelatedNote($note)
+    public function findRelatedNote($note, $id)
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.note = :note')
+            ->andWhere('p.id != :id')
             ->setParameter('note', $note)
+            ->setParameter('id', $id)
             ->orderBy('p.id', 'ASC')
             ->setMaxResults(4)
             ->getQuery()

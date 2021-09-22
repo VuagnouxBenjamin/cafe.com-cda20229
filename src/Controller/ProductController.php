@@ -54,7 +54,6 @@ class ProductController extends AbstractController
         if ($email_form->isSubmitted() && $email_form->isValid()) {
             $entityManager->persist($email_list);
             $entityManager->flush();
-
             return $this->redirectToRoute('home');
         }
 
@@ -96,7 +95,7 @@ class ProductController extends AbstractController
             'rating' => $rating[0],
             'email_form' => $email_form->createView(),
             'comments' => $entityManager->getRepository(Comments::class)->findBy(['product' => $id]),
-            'related' => $entityManager->getRepository(Products::class)->findRelatedNote($product->getNote()),
+            'related' => $entityManager->getRepository(Products::class)->findRelatedNote($product->getNote(), $id),
         ]);
     }
 
