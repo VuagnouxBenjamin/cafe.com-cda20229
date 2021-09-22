@@ -35,8 +35,11 @@
                     </div>
 
                     <div class="cart-item-total">
-                        <p>Total :</p>
-                        <p class="item-total-price">{{ item.product.sellPrice * item.quantity }} €</p>
+                        <div class="total">
+                            <p>Total :</p>
+                            <p class="item-total-price">{{ item.product.sellPrice * item.quantity }} €</p>
+                        </div>
+                        <a class="remove" href="{{ path("cart_remove", {id: item.product.id}) }}">X</a>
                     </div>
 
                 </div>
