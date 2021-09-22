@@ -52,11 +52,13 @@ class CartService
 
         $cartData = [];
 
-        foreach($panier as $id => $quantity) {
-            $cartData[] = [
-                'product' => $this->productsRepository->find($id),
-                "quantity" => $quantity
-            ];
+        if (!empty($panier)) {
+            foreach($panier as $id => $quantity) {
+                $cartData[] = [
+                    'product' => $this->productsRepository->find($id),
+                    "quantity" => $quantity
+                ];
+            }
         }
 
         return $cartData;
