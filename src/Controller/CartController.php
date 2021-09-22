@@ -3,9 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\EmailList;
-use App\Entity\Products;
 use App\Form\EmailListType;
-use App\Repository\ProductsRepository;
+use App\Service\Cart\CartService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,24 +16,8 @@ class CartController extends AbstractController
     /**
      * @Route("/panier", name="cart_index")
      */
-    public function index(Request $request, ProductsRepository $productsRepository, EntityManagerInterface $entityManager): Response
+    public function index(CartService $cartService,Request $request, EntityManagerInterface $entityManager): Response
     {
-        $panier = $request->getSession()->get("cart");
-
-        $cartData = [];
-
-        foreach($panier as $id => $quantity) {
-            $cartData[] = [
-                'product' => $productsRepository->find($id),
-                "quantity" => $quantity
-            ];
-        }
-
-        $totalPrice = 0;
-
-        foreach($cartData as $item) {
-            $totalPrice += $item["product"]->getSellPrice()  * $item["quantity"];
-        }
 
         // ------------------------------------
         // -------------                 FOOTER
@@ -55,9 +38,9 @@ class CartController extends AbstractController
         return $this->render('cart/index.html.twig', [
             "intro_sentence" => 'Panier',
             'email_form' => $email_form->createView(),
-            'items' => $cartData,
-            'totalPrice' => $totalPrice,
-            'related' => $entityManager->getRepository(Products::class)->findRelatedNote($cartData[0]["product"]->getNote(), $cartData[0]["product"]->getId()),
+            'items' => $cartService->getItemAndQuantity(),
+            'totalPrice' => $cartService->getTotalPrice(),
+            'related' => $cartService->getRelatedToCart(),
         ]);
 
     }
@@ -65,26 +48,23 @@ class CartController extends AbstractController
     /**
      * @Route("/panier/add/{id}", name="cart_add")
      */
-    public function add($id, Request $request)
+    public function add($id, CartService $cartService)
     {
-        // we get the session
-        $session = $request->getSession();
-
-        // we get the cart, if cart doesn't exist init him as an empty array.
-        $panier = $session->get("cart", []);
-
-        // add things to $panier : on product ($id) quantity = 1.
-        // -- if exists, add one to total quantity.
-        // -- if not, add only one.
-        if (!empty($panier[$id])) {
-            $panier[$id]++;
-        } else {
-            $panier[$id] = 1;
-        }
-
-        // update $panier in session.
-        $session->set("cart", $panier);
-
+        $cartService->addToCart($id);
         return $this->redirectToRoute('cart_index');
+    }
+
+    /**
+     * @Route("/panier/remove/{id}", name="cart_remove")
+     */
+    public function remove($id, CartService $cartService)
+    {
+        $itemCount = $cartService->removeFromCart($id);
+
+        if ($itemCount > 0 ) {
+            return $this->redirectToRoute("cart_index");
+        } else {
+            return $this->redirectToRoute("home");
+        }
     }
 }
