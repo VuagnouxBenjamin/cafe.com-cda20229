@@ -47,6 +47,19 @@ class ProductsRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+     * @return Products[] Returns an array of Products objects
+     */
+    public function find4Products()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(4)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 
 
 

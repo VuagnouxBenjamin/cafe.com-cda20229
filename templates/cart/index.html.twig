@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre panier - Cafe.com{% endblock %}
+
+{% block body %}
+
+    {# ----------------------- #}
+    {# ---  Cart items #}
+    {# ----------------------- #}
+
+    {# Cart Items's Style #}
+    <link rel="stylesheet" href="{{ asset("assets/css/cart/cart.css") }}" type="text/css">
+
+    <div id="cart">
+
+        <div id="cart-container">
+            {% for item in items %}
+                <div class="cart-item">
+
+                    <img src="{{ item.product.image }}" alt="image du produit {{ item.product.name }}" class="cart-img">
+
+                    <div class="cart-info">
+                        <p class="cart-category">{{ item.product.categorie.categoryName }}</p>
+                        <h2 class="cart-product">{{ item.product.name }}</h2>
+                        <div class="details">
+                            <div class="cart-det">
+                                <p class="cart-det-label">Quantité</p>
+                                <p class="cart-det-value">{{ item.quantity }}</p>
+                            </div>
+                            <div class="cart-det">
+                                <p class="cart-det-label">Poids</p>
+                                <p class="cart-det-value">{{ item.product.weightGram }} g</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-item-total">
+                        <p>Total :</p>
+                        <p class="item-total-price">{{ item.product.sellPrice * item.quantity }} €</p>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="cart-details">
+            <p id="cart-label">Montant total</p>
+            <h2 id="cart-price">
+                {{ totalPrice }} €
+            </h2>
+            <p><a href="{{ path("app_register") }}">Créez un compte</a> ou <a href="{{ path("app_login") }}">Identifiez vous</a> pour profiter de tous vos privilèges et de nos remises.</p>
+            <a href="#" id="det-btn">Valider votre commande</a>
+        </div>
+
+    </div>
+
+    {# ----------------------- #}
+    {# ---    Related products #}
+    {# ----------------------- #}
+
+    {# related product's Style #}
+    <link rel="stylesheet" href="{{ asset("assets/css/product_detail/related.css") }}" type="text/css">
+
+    <div id="related-container">
+        <h2 id="rel-title">
+            Vous aimerez aussi
+        </h2>
+        <div id="rel-flex">
+            {% for relatedProduct in related %}
+                {% include 'products/_product.card.html.twig' with {product: relatedProduct} %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
