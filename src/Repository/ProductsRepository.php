@@ -60,10 +60,6 @@ class ProductsRepository extends ServiceEntityRepository
             ;
     }
 
-
-
-
-
     /**
      * @return \Doctrine\ORM\Query
      */
