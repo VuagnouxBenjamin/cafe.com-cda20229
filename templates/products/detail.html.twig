@@ -41,7 +41,7 @@
                 <p class="det-label">Poids</p>
                 <p class="det-value">{{ product.weightGram }} g</p>
             </div>
-            <a href="#" id="det-btn">
+            <a href="{{ path("cart_add", {id: product.id}) }}" id="det-btn">
                 <img src="/images/products/cart_white.png" alt="Panier">Ajouter au panier
             </a>
 
